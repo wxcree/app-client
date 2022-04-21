@@ -19,11 +19,18 @@ const server = new WebpackDevServer(compiler, {
   progress: true, // 打包进度
   open: false, //自动打开浏览器
   overlay: { // 报错信息
-    warnings: true,
-    errors: false
+    warnings: false,
+    errors: false,
   },
   noInfo: false,
-  proxy: {}, // 代理接口转发
+  //proxy: {}, // 代理接口转发
+  proxy: {
+    '/api/**': {
+      target: 'http://localhost:8050',
+      secure: false,
+      changeOrigin: true
+    }
+  },
   quiet: true, // 日志信息
   watchOptions: {
     aggregateTimeout: 300,
@@ -32,9 +39,9 @@ const server = new WebpackDevServer(compiler, {
   // before (app, server) {
 
   // },
-  setup: function(app) {
-    mockServer(app)
-  },
+  // setup: function(app) {
+  //   mockServer(app)
+  // },
   //配置 https 需要的证书等
   // https: {
   //   cert: fs.readFileSync("path-to-cert-file.pem"),
