@@ -11,7 +11,7 @@ interface IProps extends RouteComponentProps {}
 
 const Login = (props: IProps) => {
     const [submitParams, setSubmitParams] = React.useState<LoginParams>({
-        userName: '',
+        username: '',
         password: ''
     })
 
@@ -40,7 +40,7 @@ const Login = (props: IProps) => {
     }
 
     const handleSubmit = () => {
-        if (!submitParams.userName) {
+        if (!submitParams.username) {
             message.error('请输入用户名！')
             return
         }
@@ -58,9 +58,9 @@ const Login = (props: IProps) => {
             <form className="login-form">
                 <h1>登录</h1>
                 <Input
-                    name="userName"
+                    name="username"
                     type="text"
-                    placeholder="UserName"
+                    placeholder="username"
                     onChange={inputChange}
                 ></Input>
                 <Input

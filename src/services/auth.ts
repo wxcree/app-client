@@ -3,7 +3,7 @@ import { UserInfo } from '../redux/modules/auth/actionTypes'
 import { AxiosResponse } from 'axios'
 
 export interface LoginParams {
-    userName: string
+    username: string
     password: string
 }
 
@@ -11,5 +11,5 @@ export interface LoginParams {
 export const loginAjax = function(
     payload: LoginParams
 ): Promise<AxiosResponse<ResponseResult<UserInfo>>> {
-    return axios.post('/api/login', payload)
+    return axios.post('/api/auth', payload)
 }
