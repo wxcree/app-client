@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Button } from 'antd'
 import ImportExcel from '@/utils/importExcel'
+import { PaperClipOutlined } from '@ant-design/icons'
 import './index.less'
 
 interface IProps<T> {
@@ -14,12 +15,8 @@ const ImportTable = <T extends {}>(props: IProps<T>) => {
     const inputRef = React.useRef<HTMLInputElement>(null)
     return (
         <React.Fragment>
-            <Button
-                loading={isLoading}
-                type="primary"
-                icon="cloud-upload"
-                style={{ margin: '10px 0' }}
-            >
+            <Button loading={isLoading} type="primary" style={{ margin: '10px 0' }}>
+                <PaperClipOutlined />
                 选择excel
                 <input
                     accept=".xlsx"

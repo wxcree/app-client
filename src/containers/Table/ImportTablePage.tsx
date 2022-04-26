@@ -5,10 +5,9 @@ import { Divider } from 'antd'
 import AdminTable from '@/components/AdminTable'
 import { ColumnProps } from 'antd/es/table'
 import { Button } from 'antd'
-import DataCollapse from '@/components/Collapse'
-import { getBasePkgs } from '@/services/table'
-import LoadingBar from '../ComponentsPage/LoadingBar'
+import { getBasePkgs, setPkgs } from '@/services/table'
 import MyTree from '@/components/Collapse/Tree'
+import MySelect from '@/components/ImportExcel/Select'
 
 interface ImportExcelOptions {
     nameEN: string
@@ -98,8 +97,44 @@ const ImportTable: React.FunctionComponent = (props) => {
         console.log(key)
     }
 
+    let index = 0
+    const [name, setName] = React.useState('')
+    const onNameChange = (event: any) => {
+        setName(event.target.value)
+    }
+
+    const addItem = (e: any) => {
+        e.preventDefault()
+        for (const i in DataPkgs) {
+            if (DataPkgs[i].pkgName === name) {
+                alert('不能添加重复的数据包')
+                return
+            }
+        }
+        setPkgs({
+            pkgName: name
+        }).then((Response) => {
+            console.log(Response)
+            if (Response.data.code !== 0){
+                alert('添加失败')
+                return
+            }
+            setDataPkgs([
+                ...DataPkgs,
+                {
+                    pkgName: name,
+                    tables: []
+                } || `New item ${index++}`
+            ])
+            setName('')
+        })
+    }
+
     return (
         <div>
+            <MySelect datapkgs={DataPkgs} onNameChange={onNameChange} addItem={addItem} name={name}>
+                请选择上传所使用的数据包
+            </MySelect>
             <MyTree datapkgs={DataPkgs} onChange={handleCollapse}></MyTree>
             <ImportExcel<ImportExcelOptions> onCallback={handleCallback} />
             <Button onClick={handleCheck}>Test</Button>

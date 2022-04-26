@@ -4,7 +4,12 @@ import { IPkgData } from '@/redux/modules/table/actionTypes'
 
 const { DirectoryTree } = Tree
 
-const MyTree = (props: IPkgData) => {
+export interface ITree {
+    onChange: (key: string[] | string) => void
+    datapkgs: IPkgData[]
+}
+
+const MyTree = (props: ITree) => {
     const { datapkgs } = props
     const treeData = []
 

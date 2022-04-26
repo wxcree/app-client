@@ -13,7 +13,9 @@ export const getBaseTable = function(
 
 /* basePkgs */
 export const getBasePkgs = function(payload: object): Promise<AxiosResponse<ResponseResult<any>>> {
-    return axios.post('/api/getpkg', {
-        params: payload
-    })
+    return axios.post('/api/getpkg', payload)
+}
+
+export const setPkgs = function(payload: object): Promise<AxiosResponse<ResponseResult<any>>> {
+    return axios.post('/api/setpkg', payload)
 }

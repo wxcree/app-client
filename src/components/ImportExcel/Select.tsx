@@ -1,29 +1,41 @@
 import React, { useState } from 'react'
 import { Select, Divider, Input, Typography, Space } from 'antd'
 import { PlusOutlined } from '@ant-design/icons'
+import { IPkgData } from '@/redux/modules/table/actionTypes'
 
 const { Option } = Select
 
-let index = 0
+export interface ISelect {
+    addItem: (e: any) => void
+    onNameChange: (event: any) => void
+    datapkgs: IPkgData[]
+    name: string
+    children: string
+}
 
-const App = () => {
-    const [items, setItems] = useState(['jack', 'lucy'])
-    const [name, setName] = useState('')
+// let index = 0
 
-    const onNameChange = (event: any) => {
-        setName(event.target.value)
-    }
+const MySelect = (props: ISelect) => {
+    const { datapkgs } = props
+    const { addItem } = props
+    const { onNameChange } = props
+    const { name } = props
+    const { children } = props
 
-    const addItem = (e: any) => {
-        e.preventDefault()
-        setItems([...items, name || `New item ${index++}`])
-        setName('')
-    }
+    // const onNameChange = (event: any) => {
+    //     setName(event.target.value)
+    // }
+
+    // const addItem = (e: any) => {
+    //     e.preventDefault()
+    //     setItems([...items, name || `New item ${index++}`])
+    //     setName('')
+    // }
 
     return (
         <Select
             style={{ width: 300 }}
-            placeholder="custom dropdown render"
+            placeholder={children}
             dropdownRender={(menu) => (
                 <>
                     {menu}
@@ -41,11 +53,11 @@ const App = () => {
                 </>
             )}
         >
-            {items.map((item) => (
-                <Option key={item}>{item}</Option>
+            {datapkgs.map((item) => (
+                <Option key={item.pkgName}>{item.pkgName}</Option>
             ))}
         </Select>
     )
 }
 
-export default App
+export default MySelect
