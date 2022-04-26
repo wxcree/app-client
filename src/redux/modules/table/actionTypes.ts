@@ -24,5 +24,15 @@ export interface SetTableDataAction extends Action {
     readonly data: IBaseTableData
 }
 
+export interface IPkgData {
+    onChange: (key: string[] | string) => void
+    datapkgs: [
+        {
+            pkgName: string
+            tables: string[]
+        }
+    ]
+}
+
 // 所有 table action 类型
 export type TableActions = SetTableDataAction

@@ -160,7 +160,7 @@ class TagPageOpen extends React.PureComponent<IProps, IState> {
                         <div className="tag-button"></div>
                     </Col>
                     <Col lg={2} xs={6} className="TagPageOpen__col-2">
-                        <Dropdown overlay={menus} placement="bottomCenter">
+                        <Dropdown overlay={menus} placement="bottom">
                             <Button type="primary" size="small">
                                 标签选项
                             </Button>

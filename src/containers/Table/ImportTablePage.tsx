@@ -6,6 +6,9 @@ import AdminTable from '@/components/AdminTable'
 import { ColumnProps } from 'antd/es/table'
 import { Button } from 'antd'
 import DataCollapse from '@/components/Collapse'
+import { getBasePkgs } from '@/services/table'
+import LoadingBar from '../ComponentsPage/LoadingBar'
+import MyTree from '@/components/Collapse/Tree'
 
 interface ImportExcelOptions {
     nameEN: string
@@ -15,7 +18,8 @@ interface ImportExcelOptions {
     key: string
 }
 
-const ImportTable: React.FunctionComponent = () => {
+// TODO: 这个应该是个类组件, 思考思考类组件和函数组件的不同用途，并且学习前端这个脚手架的构造原理
+const ImportTable: React.FunctionComponent = (props) => {
     const [TableData, setTableData] = React.useState<ImportExcelOptions[]>([])
     const [TableColumns, setTableColumns] = React.useState<ColumnProps<ImportExcelOptions>[]>([
         {
@@ -50,10 +54,14 @@ const ImportTable: React.FunctionComponent = () => {
             )
         }
     ])
-
-    const componentDidMount = () => {
-        console.log(1)
-    }
+    const [DataPkgs, setDataPkgs] = React.useState<any>([])
+    React.useEffect(() => {
+        console.log(1111)
+        getBasePkgs({}).then((Response) => {
+            console.log(Response)
+            setDataPkgs(Response.data.data)
+        })
+    }, [])
 
     const handleCallback = (data: ImportExcelOptions[]) => {
         console.log(data)
@@ -86,36 +94,13 @@ const ImportTable: React.FunctionComponent = () => {
         setTableColumns(oldColumns)
     }
 
-    const datapkg: any = [
-        {
-            id: 1,
-            name: 'test',
-            datas: [
-                {
-                    id: 1,
-                    name: 'test2'
-                }
-            ]
-        },
-        {
-            id: 2,
-            name: 'test2',
-            datas: [
-                {
-                    id: 2,
-                    name: 'test22'
-                }
-            ]
-        }
-    ]
-
     const handleCollapse = (key: string[] | string) => {
         console.log(key)
     }
 
     return (
         <div>
-            <DataCollapse datapkgs={datapkg} onChange={handleCollapse}></DataCollapse>
+            <MyTree datapkgs={DataPkgs} onChange={handleCollapse}></MyTree>
             <ImportExcel<ImportExcelOptions> onCallback={handleCallback} />
             <Button onClick={handleCheck}>Test</Button>
             <AdminTable<ImportExcelOptions> columns={TableColumns} dataSource={TableData} />

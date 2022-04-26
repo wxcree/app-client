@@ -43,7 +43,7 @@ const Protected = function Protected(Comp: React.ComponentType, item: RouteConfi
         setTagsNavData({
             path,
             title: meta.title
-        })
+        }) //触发action
         return <Comp />
     }
 }
@@ -69,7 +69,7 @@ export default connect(
     (dispatch: Dispatch<actionTypes.SettingsAction>) => {
         return {
             setTagsNavData(currentRouter: actionTypes.SetTagsNavOptions) {
-                dispatch(actionCreators.setTagsNavData(currentRouter))
+                dispatch(actionCreators.setTagsNavData(currentRouter)) //指明action类型，绑定action
             }
         }
     }

@@ -10,3 +10,10 @@ export const getBaseTable = function(
         params: payload
     })
 }
+
+/* basePkgs */
+export const getBasePkgs = function(payload: object): Promise<AxiosResponse<ResponseResult<any>>> {
+    return axios.post('/api/getpkg', {
+        params: payload
+    })
+}

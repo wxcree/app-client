@@ -1,5 +1,6 @@
 import React from 'react'
-import { Icon, Card } from 'antd'
+import { Card } from 'antd'
+import { Icon } from '@ant-design/compatible'
 import CountUp from 'react-countup'
 import './index.less'
 

@@ -15,7 +15,7 @@ const lessTheme = require('./config/lessTheme')
 const isEnvProduction = process.env.NODE_ENV === 'production'
 
 module.exports = {
-    mode: isEnvProduction ? 'production' : 'development',
+    mode: isEnvProduction ? "production" : "development",
     devtool: isEnvProduction ? 'none' : 'inline-cheap-module-source-map',
     entry: [...(isEnvProduction ? [] : ['react-hot-loader/patch']), './src/index.tsx'],
     output: {
@@ -182,7 +182,9 @@ module.exports = {
     },
     plugins: [
         new webpack.DefinePlugin({
-            'process.env': process.env.NODE_ENV
+            'process.env': {
+                'NODE_ENV': "'development'"
+            }
         }),
         isEnvProduction &&
             new HappyPack({

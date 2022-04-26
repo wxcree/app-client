@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { Menu, Icon } from 'antd'
+import { Menu } from 'antd'
+import { Icon } from '@ant-design/compatible'
 import { withRouter, RouteComponentProps } from 'react-router-dom'
 import menuConfig, { MenusConfig } from './menuConfig'
 

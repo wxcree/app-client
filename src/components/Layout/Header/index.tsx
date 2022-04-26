@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { Layout, Icon, Breadcrumb, Avatar, Dropdown, Menu } from 'antd'
+import { Layout, Breadcrumb, Avatar, Dropdown, Menu } from 'antd'
+import { Icon } from '@ant-design/compatible'
 import * as H from 'history'
 import { actionTypes } from '@/redux/modules/settings'
 import { actionTypes as AuthActionType } from '@/redux/modules/auth'
@@ -81,8 +82,9 @@ const AdminHeader = (props: IProps) => {
             </div>
             <div className="breadcrumb pull-left">{BreadcrumbElement}</div>
             <div className="header-auth-wrapper pull-right">
-                <Dropdown overlay={menuDropdown} placement="bottomCenter">
-                    <Avatar src={userInfo.avatar}>{userInfo.userName}</Avatar>
+                <Dropdown overlay={menuDropdown} placement="bottom">
+                    {/* <Avatar src={userInfo.avatar}>{userInfo.userName}</Avatar> */}
+                    <Avatar>{userInfo.userName}</Avatar>
                 </Dropdown>
             </div>
         </Layout.Header>

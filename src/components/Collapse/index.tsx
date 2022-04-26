@@ -7,14 +7,8 @@ interface ICollapse {
     onChange: (key: string[] | string) => void
     datapkgs: [
         {
-            id: number
-            name: string
-            datas: [
-                {
-                    id: number
-                    name: string
-                }
-            ]
+            pkgName: string
+            tables: string[]
         }
     ]
 }
@@ -22,23 +16,21 @@ interface ICollapse {
 const DataCollapse = (props: ICollapse) => {
     const { onChange } = props
     const { datapkgs } = props
-
-    const panels = datapkgs.map((item) => {
-        return (
-            <Panel header={item.name} key={item.id}>
-                {item.datas.map((i) => {
-                    return <Button key={i.id}>{i.name}</Button>
-                })}
-            </Panel>
-        )
-    })
-    return (
-        <React.Fragment>
-            <Collapse defaultActiveKey={['1']} onChange={onChange}>
-                {panels}
-            </Collapse>
-        </React.Fragment>
-    )
+    let panels
+    if (datapkgs.length <= 0) {
+        panels = <Panel header={'暂无数据'} key={'0'}></Panel>
+    } else {
+        panels = datapkgs.map((item) => {
+            return (
+                <Panel header={item.pkgName} key={item.pkgName}>
+                    {item.tables.map((i, index) => {
+                        return <Button key={index}>{i}</Button>
+                    })}
+                </Panel>
+            )
+        })
+    }
+    return <Collapse onChange={onChange}>{panels}</Collapse>
 }
 
 export default DataCollapse

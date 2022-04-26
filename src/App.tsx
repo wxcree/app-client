@@ -121,6 +121,7 @@ class App extends React.PureComponent<IProps, IState> {
 
         return (
             <Layout style={{ minHeight: '100vh' }}>
+                {/* 布局容器 */}
                 {screenOffsetWidth < ScreenStatus ? DrawerView : Sider}
                 <Layout>
                     <AdminHeader
@@ -159,10 +160,10 @@ class App extends React.PureComponent<IProps, IState> {
                                 <RouterApp></RouterApp>
                             </React.Suspense>
                         </div>
-                        <Layout.Footer style={{ textAlign: 'center' }}>
-                            react-dashboard ©2022 Created by wxc
-                        </Layout.Footer>
                     </Layout.Content>
+                    <Layout.Footer style={{ textAlign: 'center' }}>
+                        react-dashboard ©2022 Created by wxc
+                    </Layout.Footer>
                 </Layout>
             </Layout>
         )
