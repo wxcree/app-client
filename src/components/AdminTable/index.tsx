@@ -1,15 +1,16 @@
 import * as React from 'react'
 import { Table, Button } from 'antd'
-import { ColumnProps, PaginationConfig } from 'antd/es/table'
+import { ColumnProps, TablePaginationConfig } from 'antd/es/table'
 import exportExcel from '@/utils/exportExcel'
+import { GetRowKey } from 'antd/lib/table/interface'
 
 interface GlobalTableProp<T> {
-    columns: ColumnProps<T>[]
+    columns?: ColumnProps<T>[]
     dataSource: T[]
     /**
      * 如果 dataSource[i].key 没有提供，你应该使用 rowKey 来指定 dataSource 的主键
      */
-    rowKey?: ((record: T, index: number) => string) | string
+    rowKey?: GetRowKey<T> | string
     /**
      * 额外的展开行
      */
@@ -59,6 +60,8 @@ const AdminTable = <T extends {} = any>(props: GlobalTableProp<T>) => {
         const newColumnsMap: any = {}
         let newHeaderKey: Array<string> = []
 
+        if (columns === undefined) return
+
         columns.forEach((item) => {
             if (!!item.title && item.key !== 'action') {
                 if (typeof item.key === 'string') {
@@ -77,7 +80,7 @@ const AdminTable = <T extends {} = any>(props: GlobalTableProp<T>) => {
     }
 
     // table 页码配置
-    const PAGINATION: PaginationConfig = {
+    const PAGINATION: TablePaginationConfig = {
         total: totalPage || 0,
         showQuickJumper: true,
         onChange: onPageChange,

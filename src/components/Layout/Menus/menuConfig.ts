@@ -23,7 +23,7 @@ const menus: Array<MenusConfig> = [
             {
                 icon: 'table',
                 path: '/app/tables/table1',
-                title: '数据导出'
+                title: '数据展示'
             }
         ]
     },

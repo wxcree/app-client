@@ -5,12 +5,13 @@ import { IPkgData } from '@/redux/modules/table/actionTypes'
 const { DirectoryTree } = Tree
 
 export interface ITree {
-    onChange: (key: string[] | string) => void
-    datapkgs: IPkgData[]
+    datapkgs: IPkgData[],
+    onSelect: (keys: React.Key[], info: any) => void
 }
 
 const MyTree = (props: ITree) => {
     const { datapkgs } = props
+    const { onSelect } = props
     const treeData = []
 
     for (const i in datapkgs) {
@@ -21,22 +22,20 @@ const MyTree = (props: ITree) => {
         for (const j in datapkgs[i]['tables']) {
             tmp['children'].push({
                 title: datapkgs[i]['tables'][j],
-                key: datapkgs[i]['tables'][j]
+                key: datapkgs[i]['tables'][j],
+                pkgName: tmp['title'],
+                isLeaf: true
             })
         }
         treeData.push(tmp)
     }
-    const onSelect = (keys: React.Key[], info: any) => {
-        console.log('Trigger Select', keys, info)
-    }
 
     const onExpand = () => {
-        console.log('Trigger Expand')
+        //console.log('Trigger Expand')
     }
 
     return (
         <DirectoryTree
-            multiple
             defaultExpandAll
             onSelect={onSelect}
             onExpand={onExpand}

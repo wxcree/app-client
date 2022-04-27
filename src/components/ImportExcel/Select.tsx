@@ -8,6 +8,7 @@ const { Option } = Select
 export interface ISelect {
     addItem: (e: any) => void
     onNameChange: (event: any) => void
+    onSelect: (key: string) => void
     datapkgs: IPkgData[]
     name: string
     children: string
@@ -21,6 +22,7 @@ const MySelect = (props: ISelect) => {
     const { onNameChange } = props
     const { name } = props
     const { children } = props
+    const { onSelect } = props
 
     // const onNameChange = (event: any) => {
     //     setName(event.target.value)
@@ -36,6 +38,7 @@ const MySelect = (props: ISelect) => {
         <Select
             style={{ width: 300 }}
             placeholder={children}
+            onSelect={onSelect}
             dropdownRender={(menu) => (
                 <>
                     {menu}
