@@ -1,12 +1,15 @@
 import * as React from 'react'
 import withBreadcrumb from '@/hoc/withBreadcrumb'
-import { Divider } from 'antd'
+import { Divider, Layout } from 'antd'
 import AdminTable from '@/components/AdminTable'
 import { ColumnProps } from 'antd/es/table'
 import { connect } from 'react-redux'
 import { actionTypes, actionCreators } from '@/redux/modules/table'
 import { RootState } from '@/redux/Types'
 import { ThunkDispatch } from 'redux-thunk'
+import MyTree from '@/components/Collapse/Tree'
+import { getBasePkgs, getTable } from '@/services/table'
+import { getClomus } from '@/utils/table'
 
 interface ITableProps {
     /**
@@ -16,64 +19,59 @@ interface ITableProps {
     baseTableData: actionTypes.IBaseTableData
 }
 
-const TableColumns: ColumnProps<actionTypes.ITableData>[] = [
-    {
-        title: 'nameCN',
-        dataIndex: 'nameCN',
-        key: 'nameCN'
-    },
-    {
-        title: 'nameEN',
-        dataIndex: 'nameEN',
-        key: 'nameEN'
-    },
-    {
-        title: 'county',
-        dataIndex: 'county',
-        key: 'county'
-    },
-    {
-        title: 'timer',
-        dataIndex: 'timer',
-        key: 'timer'
-    },
-    {
-        title: '操作',
-        key: 'action',
-        render: (text, record) => (
-            <span>
-                <a>{record.nameCN}</a>
-                <Divider type="vertical" />
-                <a>Delete</a>
-            </span>
-        )
-    }
-]
+const TablePage: React.FunctionComponent<ITableProps> = (props) => {
+    const [DataPkgs, setDataPkgs] = React.useState<any>([])
+    const [SelectNode, setSelectNode] = React.useState<React.Key>()
 
-class TablePage extends React.PureComponent<ITableProps> {
-    componentDidMount() {
-        this.props.getBaseTableData({ currentPage: 1 })
+    const [TableData, setTableData] = React.useState<[]>([])
+    const [TableColumns, setTableColumns] = React.useState<ColumnProps<any>[]>()
+    React.useEffect(() => {
+        props.getBaseTableData({ currentPage: 1 })
+        getBasePkgs({}).then((Response) => {
+            console.log(Response)
+            setDataPkgs(Response.data.data)
+        })
+    }, [])
+
+    const onSelect = async (keys: React.Key[], info: any) => {
+        if (info.node.isLeaf !== true) return
+        if (SelectNode !== undefined && SelectNode === keys[0]) return
+        setSelectNode(keys[0])
+        const from = {
+            pkgName: info.node.pkgName,
+            tableName: info.node.key
+        }
+        console.log(from)
+        const res = await getTable(from)
+        const table = res.data.data
+        console.log(table)
+        const columns = getClomus(table)
+        setTableColumns(columns)
+        setTableData(table)
     }
 
-    handleChangePage = (currentPage: number) => {
-        this.props.getBaseTableData({ currentPage })
+    const handleChangePage = (currentPage: number) => {
+        props.getBaseTableData({ currentPage })
     }
 
-    render() {
-        const { baseTableData } = this.props
-        return (
-            <div>
+    const { baseTableData } = props
+    return (
+        <Layout>
+            <Layout.Sider style={{ width: 300, background: 0xffffff }}>
+                <MyTree datapkgs={DataPkgs} onSelect={onSelect}></MyTree>
+            </Layout.Sider>
+            <Layout.Content>
                 <AdminTable<actionTypes.ITableData>
                     isExport
                     isShowPage
                     columns={TableColumns}
-                    dataSource={baseTableData.list}
-                    totalPage={baseTableData.totalPage}
-                    onPageChange={this.handleChangePage}
+                    dataSource={TableData}
+                    // totalPage={baseTableData.totalPage}
+                    // onPageChange={handleChangePage}
                 />
-            </div>
-        )
-    }
+            </Layout.Content>
+        </Layout>
+    )
 }
 
 const mapStateToProps = (state: RootState) => {
@@ -101,7 +99,7 @@ export default connect(
             title: '数据准备'
         },
         {
-            title: '数据导出'
+            title: '数据展示'
         }
     ])(TablePage)
 )
