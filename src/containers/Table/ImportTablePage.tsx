@@ -8,6 +8,7 @@ import { Button } from 'antd'
 import { addTable, addTableName, getBasePkgs, setPkgs } from '@/services/table'
 import MySelect from '@/components/ImportExcel/Select'
 import { getClomus } from '@/utils/table'
+import { DataFrame } from '@antv/data-wizard'
 
 interface ImportExcelOptions {
     nameEN: string
@@ -55,7 +56,6 @@ const ImportTable: React.FunctionComponent = (props) => {
     //const
 
     const handleCheck = async () => {
-        openNotification('top')
         if (selectPkg === undefined || tableName === undefined || TableData.length <= 0) {
             alert('请完整上传信息')
             return
@@ -66,23 +66,25 @@ const ImportTable: React.FunctionComponent = (props) => {
             tableName: tableName
         }
         console.log(addTableFrom)
-        let res = await addTableName(addTableFrom)
-        console.log(res)
-        if (res.data.code === 1){
-            alert('添加数据表失败')
-            return
-        }
         // TODO: 添加数据到 tables
+        const df = new DataFrame(TableData)
         const addDataFrom = {
             pkgName: selectPkg,
             tableName: tableName,
-            data: TableData
+            data: TableData,
+            info: df.info()
         }
         console.log(addDataFrom)
-        res = await addTable(addDataFrom)
+        let res = await addTable(addDataFrom)
         console.log(res)
         if (res.data.code === 1){
             alert('上传数据失败')
+            return
+        }
+        res = await addTableName(addTableFrom)
+        console.log(res)
+        if (res.data.code === 1){
+            alert('添加数据表失败')
             return
         }
         openNotification('top')

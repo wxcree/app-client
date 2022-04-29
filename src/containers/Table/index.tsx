@@ -10,6 +10,10 @@ import { ThunkDispatch } from 'redux-thunk'
 import MyTree from '@/components/Collapse/Tree'
 import { getBasePkgs, getTable } from '@/services/table'
 import { getClomus } from '@/utils/table'
+import { SheetComponent } from '@antv/s2-react'
+import '@antv/s2-react/dist/style.min.css'
+import { DataFrame } from '@antv/data-wizard'
+import { S2DataConfig } from '@antv/s2'
 
 interface ITableProps {
     /**
@@ -25,6 +29,13 @@ const TablePage: React.FunctionComponent<ITableProps> = (props) => {
 
     const [TableData, setTableData] = React.useState<[]>([])
     const [TableColumns, setTableColumns] = React.useState<ColumnProps<any>[]>()
+
+    const [s2DataConfig, setS2DataConfig] = React.useState<S2DataConfig>({
+        fields: {
+            // columns: ['province', 'city', 'type', 'price', 'cost']
+        },
+        data: []
+    })
     React.useEffect(() => {
         props.getBaseTableData({ currentPage: 1 })
         getBasePkgs({}).then((Response) => {
@@ -34,7 +45,7 @@ const TablePage: React.FunctionComponent<ITableProps> = (props) => {
     }, [])
 
     const onSelect = async (keys: React.Key[], info: any) => {
-        if (info.node.isLeaf !== true) return
+        if (info.node.isLeaf !== true || SelectNode === keys[0]) return
         if (SelectNode !== undefined && SelectNode === keys[0]) return
         setSelectNode(keys[0])
         const from = {
@@ -45,13 +56,28 @@ const TablePage: React.FunctionComponent<ITableProps> = (props) => {
         const res = await getTable(from)
         const table = res.data.data
         console.log(table)
-        const columns = getClomus(table)
-        setTableColumns(columns)
-        setTableData(table)
+        if (table === undefined || table.data === undefined) {
+            alert('该表为空')
+            return
+        }
+        const df = new DataFrame(table.data)
+        const columns: any = df.axes[1]
+        console.log(df)
+        setS2DataConfig({
+            fields: {
+                columns: columns
+            },
+            data: table.data
+        })
     }
 
     const handleChangePage = (currentPage: number) => {
         props.getBaseTableData({ currentPage })
+    }
+
+    const s2Options = {
+        width: 1100,
+        height: 800
     }
 
     const { baseTableData } = props
@@ -61,6 +87,7 @@ const TablePage: React.FunctionComponent<ITableProps> = (props) => {
                 <MyTree datapkgs={DataPkgs} onSelect={onSelect}></MyTree>
             </Layout.Sider>
             <Layout.Content>
+                <SheetComponent dataCfg={s2DataConfig} options={s2Options} sheetType="table" />
                 <AdminTable<actionTypes.ITableData>
                     isExport
                     isShowPage
