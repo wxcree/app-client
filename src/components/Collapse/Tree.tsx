@@ -5,7 +5,7 @@ import { IPkgData } from '@/redux/modules/table/actionTypes'
 const { DirectoryTree } = Tree
 
 export interface ITree {
-    datapkgs: IPkgData[],
+    datapkgs: IPkgData[]
     onSelect: (keys: React.Key[], info: any) => void
 }
 
