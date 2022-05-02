@@ -40,6 +40,24 @@ const routes: RouteConfig[] = [
             rules: ['loginRequired']
         }
     },
+    {
+        name: 'MultiTable',
+        path: '/app/analyze/MultiTable',
+        component: lazy(() => import('@/containers/Analyze/MultiTable')),
+        meta: {
+            title: '多维分析',
+            rules: ['loginRequired']
+        }
+    },
+    {
+        name: 'AutoChart',
+        path: '/app/databoard/AutoChart',
+        component: lazy(() => import('@/containers/DataBoard/AutoChart')),
+        meta: {
+            title: '多维分析',
+            rules: ['loginRequired']
+        }
+    },
     /* ComponentsPage start */
     {
         name: 'LoadingBar',

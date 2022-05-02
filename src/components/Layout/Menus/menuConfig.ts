@@ -32,6 +32,11 @@ const menus: Array<MenusConfig> = [
         title: '数据分析',
         SubMenu: [
             {
+                icon: 'drag',
+                path: '/app/analyze/MultiTable',
+                title: '多维分析'
+            },
+            {
                 icon: 'loading-3-quarters',
                 path: '/app/components/loadingBar',
                 title: 'LoadingBar'
@@ -47,6 +52,11 @@ const menus: Array<MenusConfig> = [
         icon: 'dashboard',
         title: '数据展示',
         SubMenu: [
+            {
+                icon: 'drag',
+                path: '/app/databoard/AutoChart',
+                title: '自动图表'
+            },
             {
                 icon: 'loading-3-quarters',
                 path: '/app/components/loadingBar',

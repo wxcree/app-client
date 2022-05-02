@@ -56,18 +56,20 @@ const TablePage: React.FunctionComponent<ITableProps> = (props) => {
         const res = await getTable(from)
         const table = res.data.data
         console.log(table)
-        if (table === undefined || table.data === undefined) {
+        if (table === undefined) {
             alert('该表为空')
             return
         }
-        const df = new DataFrame(table.data)
+        console.log(1111)
+        console.log(table)
+        const df = new DataFrame(table)
         const columns: any = df.axes[1]
         console.log(df)
         setS2DataConfig({
             fields: {
                 columns: columns
             },
-            data: table.data
+            data: table
         })
     }
 
@@ -82,7 +84,7 @@ const TablePage: React.FunctionComponent<ITableProps> = (props) => {
 
     const { baseTableData } = props
     return (
-        <Layout>
+        <Layout className="inner-layout">
             <Layout.Sider style={{ width: 300, background: 0xffffff }}>
                 <MyTree datapkgs={DataPkgs} onSelect={onSelect}></MyTree>
             </Layout.Sider>
