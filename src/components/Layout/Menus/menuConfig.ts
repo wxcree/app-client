@@ -16,12 +16,12 @@ const menus: Array<MenusConfig> = [
         title: '数据准备',
         SubMenu: [
             {
-                icon: 'table',
+                icon: 'api',
                 path: '/app/tables/importTable',
                 title: '数据导入'
             },
             {
-                icon: 'table',
+                icon: 'container',
                 path: '/app/tables/table1',
                 title: '数据展示'
             }
@@ -32,7 +32,7 @@ const menus: Array<MenusConfig> = [
         title: '数据分析',
         SubMenu: [
             {
-                icon: 'drag',
+                icon: 'project',
                 path: '/app/analyze/MultiTable',
                 title: '多维分析'
             },
@@ -53,9 +53,9 @@ const menus: Array<MenusConfig> = [
         title: '数据展示',
         SubMenu: [
             {
-                icon: 'drag',
+                icon: 'fund',
                 path: '/app/databoard/AutoChart',
-                title: '自动图表'
+                title: '自助图表'
             },
             {
                 icon: 'loading-3-quarters',

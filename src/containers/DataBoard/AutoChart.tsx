@@ -17,6 +17,6 @@ export default withBreadcrumb([
         title: '数据展示'
     },
     {
-        title: '自动图表'
+        title: '自助图表'
     }
 ])(MyAutoChart)

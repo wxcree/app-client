@@ -27,7 +27,7 @@ const routes: RouteConfig[] = [
         path: '/app/tables/table1',
         component: lazy(() => import('../containers/Table')),
         meta: {
-            title: '导出Excel',
+            title: '数据展示',
             rules: ['loginRequired']
         }
     },
@@ -36,7 +36,7 @@ const routes: RouteConfig[] = [
         path: '/app/tables/importTable',
         component: lazy(() => import('../containers/Table/ImportTablePage')),
         meta: {
-            title: '导入Excel',
+            title: '数据导入',
             rules: ['loginRequired']
         }
     },
@@ -54,7 +54,7 @@ const routes: RouteConfig[] = [
         path: '/app/databoard/AutoChart',
         component: lazy(() => import('@/containers/DataBoard/AutoChart')),
         meta: {
-            title: '多维分析',
+            title: '自助图表',
             rules: ['loginRequired']
         }
     },
