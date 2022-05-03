@@ -1,0 +1,299 @@
+===============================================================================
+EXTENSION NAME : linecount
+EXTENSION VERSION : 0.1.7
+-------------------------------------------------------------------------------
+count time : 2022-05-02 16:24:02
+count workspace : /home/wxc/app-client
+total files : 287
+total code lines : 143305
+total comment lines : 39418
+total blank lines : 28719
+
+.babelrc.js, code is 32, comment is 2, blank is 1.
+.eslintignore, code is 6, comment is 0, blank is 0.
+.eslintrc.js, code is 50, comment is 77, blank is 2.
+.gitignore, code is 14, comment is 0, blank is 1.
+.postcssrc.js, code is 3, comment is 0, blank is 0.
+.prettierignore, code is 6, comment is 0, blank is 0.
+.prettierrc.js, code is 13, comment is 23, blank is 1.
+/home/wxc/app-server/.babelrc, code is 7, comment is 0, blank is 2.
+/home/wxc/app-server/.eslintrc.js, code is 31, comment is 0, blank is 1.
+/home/wxc/app-server/.gitattributes, code is 2, comment is 0, blank is 0.
+/home/wxc/app-server/.gitignore, code is 6, comment is 105, blank is 0.
+/home/wxc/app-server/jsconfig.json, code is 11, comment is 0, blank is 1.
+/home/wxc/app-server/nodemon.json, code is 11, comment is 0, blank is 2.
+/home/wxc/app-server/package.json, code is 61, comment is 0, blank is 0.
+/home/wxc/app-server/README.md, code is 88, comment is 13, blank is 24.
+/home/wxc/app-server/server/configs.js, code is 15, comment is 3, blank is 0.
+/home/wxc/app-server/server/configs.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/dbConfigs.js, code is 39, comment is 1, blank is 0.
+/home/wxc/app-server/server/dbConfigs.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/domain/App.js, code is 14, comment is 1, blank is 0.
+/home/wxc/app-server/server/domain/App.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/domain/Class.js, code is 2, comment is 1, blank is 0.
+/home/wxc/app-server/server/domain/Class.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/domain/Configs.js, code is 2, comment is 1, blank is 0.
+/home/wxc/app-server/server/domain/Configs.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/domain/Error.js, code is 2, comment is 1, blank is 0.
+/home/wxc/app-server/server/domain/Error.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/domain/IApp.js, code is 2, comment is 1, blank is 0.
+/home/wxc/app-server/server/domain/IApp.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/domain/IAuth.js, code is 2, comment is 1, blank is 0.
+/home/wxc/app-server/server/domain/IAuth.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/domain/IBase.js, code is 2, comment is 1, blank is 0.
+/home/wxc/app-server/server/domain/IBase.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/domain/IConfigs.js, code is 2, comment is 1, blank is 0.
+/home/wxc/app-server/server/domain/IConfigs.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/domain/IDatapkg.js, code is 2, comment is 1, blank is 0.
+/home/wxc/app-server/server/domain/IDatapkg.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/domain/IError.js, code is 2, comment is 1, blank is 0.
+/home/wxc/app-server/server/domain/IError.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/domain/IPath.js, code is 2, comment is 1, blank is 0.
+/home/wxc/app-server/server/domain/IPath.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/domain/IPkg.js, code is 1, comment is 1, blank is 0.
+/home/wxc/app-server/server/domain/IPkg.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/domain/ITable.js, code is 2, comment is 1, blank is 0.
+/home/wxc/app-server/server/domain/ITable.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/domain/ITest.js, code is 2, comment is 1, blank is 0.
+/home/wxc/app-server/server/domain/ITest.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/domain/Path.js, code is 2, comment is 1, blank is 0.
+/home/wxc/app-server/server/domain/Path.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/domain/Test.js, code is 2, comment is 1, blank is 0.
+/home/wxc/app-server/server/domain/Test.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/index.js, code is 23, comment is 15, blank is 0.
+/home/wxc/app-server/server/index.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/middlewares/checkMethod.js, code is 20, comment is 2, blank is 0.
+/home/wxc/app-server/server/middlewares/checkMethod.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/middlewares/index.js, code is 11, comment is 2, blank is 0.
+/home/wxc/app-server/server/middlewares/index.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/middlewares/logger.js, code is 12, comment is 1, blank is 0.
+/home/wxc/app-server/server/middlewares/logger.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/models/auth.js, code is 11, comment is 14, blank is 0.
+/home/wxc/app-server/server/models/auth.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/models/index.js, code is 8, comment is 1, blank is 0.
+/home/wxc/app-server/server/models/index.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/models/pkg.js, code is 93, comment is 6, blank is 0.
+/home/wxc/app-server/server/models/pkg.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/models/table.js, code is 40, comment is 23, blank is 0.
+/home/wxc/app-server/server/models/table.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/models/test.js, code is 13, comment is 6, blank is 0.
+/home/wxc/app-server/server/models/test.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/route/index.js, code is 15, comment is 1, blank is 0.
+/home/wxc/app-server/server/route/index.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/route/path.js, code is 38, comment is 6, blank is 0.
+/home/wxc/app-server/server/route/path.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/route/router.js, code is 10, comment is 2, blank is 0.
+/home/wxc/app-server/server/route/router.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/route/routes/auth.js, code is 14, comment is 1, blank is 0.
+/home/wxc/app-server/server/route/routes/auth.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/route/routes/extra.js, code is 20, comment is 1, blank is 0.
+/home/wxc/app-server/server/route/routes/extra.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/route/routes/pkgs.js, code is 26, comment is 1, blank is 0.
+/home/wxc/app-server/server/route/routes/pkgs.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/route/routes/table.js, code is 20, comment is 1, blank is 0.
+/home/wxc/app-server/server/route/routes/table.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/route/routes/tables.js, code is 17, comment is 2, blank is 0.
+/home/wxc/app-server/server/route/routes/tables.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/route/routes/test.js, code is 17, comment is 1, blank is 0.
+/home/wxc/app-server/server/route/routes/test.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/test/index.js, code is 166, comment is 25, blank is 0.
+/home/wxc/app-server/server/test/index.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/utils/database.js, code is 6, comment is 1, blank is 0.
+/home/wxc/app-server/server/utils/database.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/utils/pkg.js, code is 61, comment is 5, blank is 0.
+/home/wxc/app-server/server/utils/pkg.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/server/utils/table.js, code is 115, comment is 15, blank is 0.
+/home/wxc/app-server/server/utils/table.js.map, code is 1, comment is 0, blank is 0.
+/home/wxc/app-server/src/configs.ts, code is 13, comment is 2, blank is 2.
+/home/wxc/app-server/src/dbConfigs.ts, code is 34, comment is 15, blank is 12.
+/home/wxc/app-server/src/domain/IApp.ts, code is 12, comment is 0, blank is 2.
+/home/wxc/app-server/src/domain/IAuth.ts, code is 11, comment is 0, blank is 2.
+/home/wxc/app-server/src/domain/IBase.ts, code is 4, comment is 0, blank is 0.
+/home/wxc/app-server/src/domain/IConfigs.ts, code is 8, comment is 0, blank is 1.
+/home/wxc/app-server/src/domain/IDatapkg.ts, code is 14, comment is 0, blank is 4.
+/home/wxc/app-server/src/domain/IError.ts, code is 4, comment is 0, blank is 0.
+/home/wxc/app-server/src/domain/IPath.ts, code is 6, comment is 0, blank is 1.
+/home/wxc/app-server/src/domain/ITable.ts, code is 16, comment is 0, blank is 5.
+/home/wxc/app-server/src/domain/ITest.ts, code is 4, comment is 0, blank is 1.
+/home/wxc/app-server/src/index.ts, code is 19, comment is 14, blank is 9.
+/home/wxc/app-server/src/middlewares/checkMethod.ts, code is 16, comment is 1, blank is 1.
+/home/wxc/app-server/src/middlewares/index.ts, code is 6, comment is 1, blank is 0.
+/home/wxc/app-server/src/middlewares/logger.ts, code is 11, comment is 0, blank is 1.
+/home/wxc/app-server/src/models/auth.ts, code is 14, comment is 13, blank is 2.
+/home/wxc/app-server/src/models/index.ts, code is 4, comment is 0, blank is 1.
+/home/wxc/app-server/src/models/pkg.ts, code is 95, comment is 5, blank is 10.
+/home/wxc/app-server/src/models/table.ts, code is 43, comment is 22, blank is 7.
+/home/wxc/app-server/src/models/test.ts, code is 10, comment is 5, blank is 5.
+/home/wxc/app-server/src/README.md, code is 7, comment is 4, blank is 0.
+/home/wxc/app-server/src/route/index.ts, code is 10, comment is 0, blank is 1.
+/home/wxc/app-server/src/route/path.ts, code is 37, comment is 5, blank is 4.
+/home/wxc/app-server/src/route/README.md, code is 6, comment is 3, blank is 1.
+/home/wxc/app-server/src/route/router.ts, code is 5, comment is 1, blank is 3.
+/home/wxc/app-server/src/route/routes/auth.ts, code is 10, comment is 0, blank is 2.
+/home/wxc/app-server/src/route/routes/pkgs.ts, code is 23, comment is 0, blank is 4.
+/home/wxc/app-server/src/route/routes/table.ts, code is 17, comment is 0, blank is 2.
+/home/wxc/app-server/src/route/routes/test.ts, code is 13, comment is 0, blank is 3.
+/home/wxc/app-server/src/test/index.ts, code is 162, comment is 24, blank is 7.
+/home/wxc/app-server/src/utils/pkg.ts, code is 47, comment is 4, blank is 4.
+/home/wxc/app-server/src/utils/table.ts, code is 101, comment is 14, blank is 11.
+/home/wxc/app-server/tsconfig.json, code is 22, comment is 4, blank is 1.
+/home/wxc/app-server/yarn-error.log, code is 6307, comment is 21, blank is 1375.
+/home/wxc/app-server/yarn.lock, code is 6256, comment is 22, blank is 1371.
+CNAME, code is 1, comment is 0, blank is 0.
+config/lessTheme.js, code is 10, comment is 2, blank is 1.
+deploy.sh, code is 10, comment is 5, blank is 5.
+dist/favicon.ico, it is a binary file.
+dist/index.html, code is 13, comment is 0, blank is 0.
+dist/static/css/0.38ca3853.chunk.css, code is 1, comment is 0, blank is 0.
+dist/static/css/0.38ca3853.chunk.css.gz, it is a binary file.
+dist/static/css/1.38ca3853.chunk.css, code is 1, comment is 0, blank is 0.
+dist/static/css/10.38ca3853.chunk.css, code is 1, comment is 0, blank is 0.
+dist/static/css/12.38ca3853.chunk.css, code is 1, comment is 0, blank is 0.
+dist/static/css/2.38ca3853.chunk.css, code is 1, comment is 0, blank is 0.
+dist/static/css/4.38ca3853.chunk.css, code is 0, comment is 0, blank is 0.
+dist/static/css/5.38ca3853.chunk.css, code is 1, comment is 0, blank is 0.
+dist/static/css/5.38ca3853.chunk.css.gz, it is a binary file.
+dist/static/css/6.38ca3853.chunk.css, code is 1, comment is 0, blank is 0.
+dist/static/css/6.38ca3853.chunk.css.gz, it is a binary file.
+dist/static/css/8.38ca3853.chunk.css, code is 1, comment is 0, blank is 0.
+dist/static/css/8.38ca3853.chunk.css.gz, it is a binary file.
+dist/static/css/9.38ca3853.chunk.css, code is 1, comment is 0, blank is 0.
+dist/static/js/0.38ca38536d5f1fd7fc43.js, code is 1, comment is 0, blank is 0.
+dist/static/js/0.38ca38536d5f1fd7fc43.js.gz, it is a binary file.
+dist/static/js/0.c7cef82d04e7ce0dbe3f.js, code is 5678, comment is 1044, blank is 1763.
+dist/static/js/1.38ca38536d5f1fd7fc43.js, code is 1, comment is 1, blank is 0.
+dist/static/js/1.38ca38536d5f1fd7fc43.js.gz, it is a binary file.
+dist/static/js/1.c7cef82d04e7ce0dbe3f.js, code is 24475, comment is 13623, blank is 3282.
+dist/static/js/10.38ca38536d5f1fd7fc43.js, code is 1, comment is 0, blank is 0.
+dist/static/js/10.c7cef82d04e7ce0dbe3f.js, code is 68, comment is 31, blank is 28.
+dist/static/js/11.38ca38536d5f1fd7fc43.js, code is 1, comment is 0, blank is 0.
+dist/static/js/11.c7cef82d04e7ce0dbe3f.js, code is 81, comment is 36, blank is 39.
+dist/static/js/12.38ca38536d5f1fd7fc43.js, code is 1, comment is 0, blank is 0.
+dist/static/js/12.38ca38536d5f1fd7fc43.js.gz, it is a binary file.
+dist/static/js/12.c7cef82d04e7ce0dbe3f.js, code is 21, comment is 8, blank is 11.
+dist/static/js/13.38ca38536d5f1fd7fc43.js, code is 1, comment is 0, blank is 0.
+dist/static/js/4.c7cef82d04e7ce0dbe3f.js, code is 30755, comment is 17690, blank is 9467.
+dist/static/js/5.38ca38536d5f1fd7fc43.js, code is 1, comment is 1, blank is 0.
+dist/static/js/5.38ca38536d5f1fd7fc43.js.gz, it is a binary file.
+dist/static/js/5.c7cef82d04e7ce0dbe3f.js, code is 12171, comment is 2199, blank is 3272.
+dist/static/js/6.38ca38536d5f1fd7fc43.js, code is 1, comment is 1, blank is 0.
+dist/static/js/6.38ca38536d5f1fd7fc43.js.gz, it is a binary file.
+dist/static/js/6.c7cef82d04e7ce0dbe3f.js, code is 1205, comment is 212, blank is 317.
+dist/static/js/7.38ca38536d5f1fd7fc43.js, code is 1, comment is 0, blank is 0.
+dist/static/js/7.38ca38536d5f1fd7fc43.js.gz, it is a binary file.
+dist/static/js/7.c7cef82d04e7ce0dbe3f.js, code is 529, comment is 78, blank is 87.
+dist/static/js/8.38ca38536d5f1fd7fc43.js, code is 1, comment is 0, blank is 0.
+dist/static/js/8.38ca38536d5f1fd7fc43.js.gz, it is a binary file.
+dist/static/js/8.c7cef82d04e7ce0dbe3f.js, code is 41, comment is 15, blank is 23.
+dist/static/js/9.38ca38536d5f1fd7fc43.js, code is 1, comment is 0, blank is 0.
+dist/static/js/9.38ca38536d5f1fd7fc43.js.gz, it is a binary file.
+dist/static/js/9.c7cef82d04e7ce0dbe3f.js, code is 31, comment is 10, blank is 12.
+dist/static/js/main.38ca38536d5f1fd7fc43.js, code is 1, comment is 0, blank is 0.
+dist/static/js/main.38ca38536d5f1fd7fc43.js.gz, it is a binary file.
+dist/static/js/main.c7cef82d04e7ce0dbe3f.js, code is 209, comment is 235, blank is 29.
+dist/static/js/vendor.38ca38536d5f1fd7fc43.js, code is 1, comment is 1, blank is 0.
+dist/static/js/vendor.38ca38536d5f1fd7fc43.js.gz, it is a binary file.
+dist/static/js/vendor.c7cef82d04e7ce0dbe3f.js, code is 18003, comment is 3216, blank is 3391.
+mock/auth.js, code is 13, comment is 1, blank is 2.
+mock/datapkg.js, code is 35, comment is 0, blank is 3.
+mock/home.js, code is 77, comment is 1, blank is 2.
+mock/index.js, code is 9, comment is 0, blank is 2.
+mock/table.js, code is 22, comment is 0, blank is 2.
+note.md, code is 29, comment is 1, blank is 6.
+package-lock.json, code is 13284, comment is 0, blank is 0.
+package.json, code is 109, comment is 0, blank is 1.
+public/home.png, it is a binary file.
+public/index.html, code is 13, comment is 0, blank is 0.
+README.md, code is 19, comment is 0, blank is 5.
+scripts/build.js, code is 28, comment is 1, blank is 3.
+scripts/start.js, code is 39, comment is 18, blank is 5.
+src/App.less, code is 51, comment is 1, blank is 5.
+src/App.tsx, code is 173, comment is 10, blank is 16.
+src/components/AdminTable/index.tsx, code is 85, comment is 24, blank is 8.
+src/components/Collapse/index.tsx, code is 32, comment is 0, blank is 4.
+src/components/Collapse/Tree.tsx, code is 39, comment is 1, blank is 7.
+src/components/Draggable/index.tsx, code is 151, comment is 8, blank is 30.
+src/components/Echarts/Echart.tsx, code is 94, comment is 9, blank is 9.
+src/components/Echarts/LineBarChart.tsx, code is 205, comment is 11, blank is 12.
+src/components/Echarts/Pie.tsx, code is 64, comment is 0, blank is 12.
+src/components/ImportExcel/index.less, code is 10, comment is 0, blank is 0.
+src/components/ImportExcel/index.tsx, code is 37, comment is 0, blank is 4.
+src/components/ImportExcel/Select.tsx, code is 49, comment is 9, blank is 8.
+src/components/Layout/Header/index.less, code is 12, comment is 1, blank is 1.
+src/components/Layout/Header/index.tsx, code is 86, comment is 0, blank is 8.
+src/components/Layout/Menus/index.tsx, code is 50, comment is 1, blank is 5.
+src/components/Layout/Menus/menuConfig.ts, code is 72, comment is 0, blank is 2.
+src/components/Layout/TagPageOpen/index.less, code is 107, comment is 6, blank is 8.
+src/components/Layout/TagPageOpen/index.tsx, code is 146, comment is 13, blank is 16.
+src/components/Layout/TagPageOpen/Tag.tsx, code is 41, comment is 1, blank is 4.
+src/components/LoadingBar/index.less, code is 108, comment is 1, blank is 1.
+src/components/LoadingBar/index.tsx, code is 118, comment is 28, blank is 20.
+src/components/LoadingFull/index.less, code is 51, comment is 0, blank is 11.
+src/components/LoadingFull/index.tsx, code is 16, comment is 0, blank is 2.
+src/components/Select/MySelect.tsx, code is 88, comment is 0, blank is 8.
+src/containers/403/index.less, code is 247, comment is 1, blank is 51.
+src/containers/403/index.tsx, code is 387, comment is 0, blank is 7.
+src/containers/Analyze/index.less, code is 3, comment is 0, blank is 0.
+src/containers/Analyze/MultiTable.tsx, code is 137, comment is 1, blank is 10.
+src/containers/ComponentsPage/drag.less, code is 4, comment is 0, blank is 0.
+src/containers/ComponentsPage/DragAblePage.tsx, code is 31, comment is 0, blank is 3.
+src/containers/ComponentsPage/LoadingBar.tsx, code is 27, comment is 0, blank is 5.
+src/containers/DataBoard/AutoChart.tsx, code is 19, comment is 0, blank is 3.
+src/containers/Home/CommentList.tsx, code is 46, comment is 0, blank is 5.
+src/containers/Home/index.less, code is 19, comment is 0, blank is 0.
+src/containers/Home/index.tsx, code is 87, comment is 4, blank is 9.
+src/containers/Home/NumberCard/index.less, code is 30, comment is 0, blank is 4.
+src/containers/Home/NumberCard/index.tsx, code is 25, comment is 0, blank is 3.
+src/containers/Home/OrderTable.tsx, code is 67, comment is 0, blank is 5.
+src/containers/Login/index.less, code is 84, comment is 1, blank is 6.
+src/containers/Login/index.tsx, code is 71, comment is 1, blank is 10.
+src/containers/Login/Input.tsx, code is 49, comment is 0, blank is 10.
+src/containers/NoFind/index.less, code is 220, comment is 1, blank is 49.
+src/containers/NoFind/index.tsx, code is 443, comment is 0, blank is 9.
+src/containers/Table/ImportTablePage.tsx, code is 147, comment is 5, blank is 14.
+src/containers/Table/index.tsx, code is 117, comment is 6, blank is 11.
+src/hoc/utils.ts, code is 48, comment is 18, blank is 8.
+src/hoc/withBreadcrumb.tsx, code is 16, comment is 1, blank is 3.
+src/hoc/withDelay.tsx, code is 24, comment is 0, blank is 4.
+src/index.tsx, code is 20, comment is 2, blank is 2.
+src/Page.tsx, code is 35, comment is 1, blank is 5.
+src/redux/index.ts, code is 10, comment is 1, blank is 3.
+src/redux/modules/auth/actionCreators.ts, code is 5, comment is 0, blank is 1.
+src/redux/modules/auth/actionTypes.ts, code is 14, comment is 0, blank is 5.
+src/redux/modules/auth/index.ts, code is 17, comment is 0, blank is 3.
+src/redux/modules/home/actionCreators.ts, code is 5, comment is 0, blank is 1.
+src/redux/modules/home/actionTypes.ts, code is 40, comment is 2, blank is 9.
+src/redux/modules/home/index.ts, code is 28, comment is 0, blank is 3.
+src/redux/modules/settings/actionCreators.ts, code is 42, comment is 24, blank is 6.
+src/redux/modules/settings/actionTypes.ts, code is 62, comment is 52, blank is 15.
+src/redux/modules/settings/index.ts, code is 106, comment is 13, blank is 22.
+src/redux/modules/table/actionCreators.ts, code is 18, comment is 0, blank is 2.
+src/redux/modules/table/actionTypes.ts, code is 25, comment is 1, blank is 7.
+src/redux/modules/table/index.ts, code is 17, comment is 0, blank is 3.
+src/redux/reducers.ts, code is 13, comment is 0, blank is 3.
+src/redux/Types.d.ts, code is 12, comment is 10, blank is 5.
+src/routes/config.ts, code is 77, comment is 1, blank is 4.
+src/routes/index.tsx, code is 64, comment is 6, blank is 8.
+src/services/auth.ts, code is 12, comment is 1, blank is 2.
+src/services/axios.ts, code is 36, comment is 1, blank is 6.
+src/services/data.ts, code is 10, comment is 1, blank is 1.
+src/services/home.ts, code is 10, comment is 1, blank is 1.
+src/services/table.ts, code is 25, comment is 2, blank is 6.
+src/static/favicon.ico, it is a binary file.
+src/static/timg.jpg, it is a binary file.
+src/styles/index.less, code is 2, comment is 0, blank is 0.
+src/styles/mixin.less, code is 14, comment is 0, blank is 1.
+src/styles/vars.less, code is 6, comment is 1, blank is 4.
+src/utils/common.ts, code is 23, comment is 8, blank is 8.
+src/utils/exportExcel.ts, code is 32, comment is 8, blank is 6.
+src/utils/handleXlsx.ts, code is 32, comment is 8, blank is 3.
+src/utils/importExcel.ts, code is 43, comment is 5, blank is 9.
+src/utils/table.ts, code is 94, comment is 5, blank is 5.
+src/utils/throttle.ts, code is 53, comment is 15, blank is 7.
+tsconfig.json, code is 32, comment is 39, blank is 6.
+webpack.config.js, code is 232, comment is 15, blank is 3.
+webpack.dll.config.js, code is 32, comment is 2, blank is 1.
+workspace.code-workspace, code is 11, comment is 0, blank is 0.
+yarn-error.log, code is 7601, comment is 22, blank is 1557.
+yarn.lock, code is 8561, comment is 26, blank is 1908.
+===============================================================================
