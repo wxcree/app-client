@@ -1,15 +1,65 @@
 import * as React from 'react'
 import withBreadcrumb from '@/hoc/withBreadcrumb'
 import MySelect from '@/components/Select/MySelect'
+import { CaretDownOutlined } from '@ant-design/icons'
+import { StepBar } from '@/components/StepBar'
+import { SelectView, FromView, ChartView } from './views'
 
 
-const MyAutoChart: React.FunctionComponent = () => {
-    const values = ['营业额', '消费总数']
-    const measures = ['时间', '桌台', '消费方式']
-    const handleChange = (values: any) => {
-        console.log(values)
+const MyAutoChart: React.FC = () => {
+    const [currentStep, setcurrentStep] = React.useState<number>(1)
+
+    const onStepChange = (currentStep: number) => {
+        setcurrentStep(currentStep)
     }
-    return <MySelect values={values} measures={measures} handleChange={handleChange}></MySelect>
+
+    const SelectContent = (
+        <>
+            <SelectView />
+        </>
+    )
+    const FromSelect = (
+        <>
+            <FromView />
+        </>
+    )
+
+    const resultContent = (
+        <>
+            <ChartView />
+        </>
+    )
+    // manifest
+
+    const steps = [
+        {
+            title: 'Data',
+            desc: 'Source data:',
+            content: SelectContent
+        },
+        {
+            title: 'manifest',
+            desc: 'Advices with lint recommended from data:',
+            content: FromSelect
+        },
+        {
+            title: 'Chart',
+            desc: 'Render chart but you also know the limits.',
+            content: resultContent
+        }
+    ]
+
+    return (
+        <>
+            <StepBar current={currentStep} onChange={onStepChange} steps={steps} />
+
+            <p>{steps[currentStep].desc}</p>
+
+            <div className="steps-content" style={{ height: 'calc(100% - 80px)' }}>
+                {steps[currentStep].content}
+            </div>
+        </>
+    )
 }
 
 export default withBreadcrumb([
