@@ -52,19 +52,14 @@ const TablePage: React.FunctionComponent<ITableProps> = (props) => {
             pkgName: info.node.pkgName,
             tableName: info.node.key
         }
-        console.log(from)
         const res = await getTable(from)
         const table = res.data.data
-        console.log(table)
-        if (table === undefined) {
+        if (table === undefined || res.data.code === 1) {
             alert('该表为空')
             return
         }
-        console.log(1111)
-        console.log(table)
         const df = new DataFrame(table)
         const columns: any = df.axes[1]
-        console.log(df)
         setS2DataConfig({
             fields: {
                 columns: columns

@@ -15,6 +15,10 @@ export const getTable = function(payload: object): Promise<AxiosResponse<Respons
     return axios.post('/api/gettable', payload)
 }
 
+export const getTableMutil = function(payload: object): Promise<AxiosResponse<ResponseResult<any>>> {
+    return axios.post('/api/getmutiltable', payload)
+}
+
 /* Pkgs */
 export const getBasePkgs = function(payload: object): Promise<AxiosResponse<ResponseResult<any>>> {
     return axios.post('/api/getpkg', payload)

@@ -6,7 +6,7 @@ import { actionTypes, actionCreators } from '@/redux/modules/table'
 import { RootState } from '@/redux/Types'
 import { ThunkDispatch } from 'redux-thunk'
 import MyTree from '@/components/Collapse/Tree'
-import { getBasePkgs, getTable } from '@/services/table'
+import { getBasePkgs, getTable, getTableMutil } from '@/services/table'
 import { SheetComponent, Switcher } from '@antv/s2-react'
 import '@antv/s2-react/dist/style.min.css'
 import { DataFrame } from '@antv/data-wizard'
@@ -18,8 +18,12 @@ import {
     initSwitcherFields
 } from '@/utils/table'
 import { SwitcherResult } from '@antv/s2-react/esm/components/switcher/interface'
-import { FieldsInfo } from '@antv/data-wizard/lib/dataset'
 import './index.less'
+
+interface TableBascInfo {
+    pkgName: string
+    tableName: string
+}
 
 const MultiTable: React.FunctionComponent = () => {
     const [DataPkgs, setDataPkgs] = React.useState<any>([])
@@ -29,32 +33,31 @@ const MultiTable: React.FunctionComponent = () => {
     const [switcherFields, setSwitcherFields] = React.useState({})
     const [S2Data, setS2Data] = React.useState<Data[]>([])
 
+    const [currTableInfo, setCurrTableInfo] = React.useState<TableBascInfo>()
+
     React.useEffect(() => {
         getBasePkgs({}).then((Response) => {
-            console.log(Response)
             setDataPkgs(Response.data.data)
         })
     }, [])
 
-    const onSubmit = (result: SwitcherResult) => {
+    const onSubmit = async (result: SwitcherResult) => {
         console.log('result:', result)
         const newFields = generateFields(result)
         setFields(newFields)
         setSwitcherFields(generateSwitcherFields(result))
-        console.log(newFields)
-        const newCol = [...newFields['columns'], ...newFields['rows'], ...newFields['values']]
-        console.log(newCol)
-        const tmp = Object.assign([], S2Data)
-        console.log(tmp)
+        console.log(DataPkgs)
         // TODO: 缺少数据升维的过程
-        const newData = tmp.map((item) => {
-            const ret: any = {}
-            for (const i of newCol) {
-                ret[i] = item[i]
-            }
-            return ret
-        })
+        if (currTableInfo === undefined) return
+        const mutilFrom = {
+            ...currTableInfo,
+            columns: [...newFields['columns'], ...newFields['rows']],
+            values: newFields['values']
+        }
+        console.log(mutilFrom)
+        const newData = await getTableMutil(mutilFrom)
         console.log(newData)
+        setS2Data(newData.data.data)
     }
 
     const onSelect = async (keys: React.Key[], info: any) => {
@@ -65,6 +68,7 @@ const MultiTable: React.FunctionComponent = () => {
             pkgName: info.node.pkgName,
             tableName: info.node.key
         }
+        setCurrTableInfo(from)
         console.log(from)
         const res = await getTable(from)
         const table = res.data.data
@@ -74,6 +78,7 @@ const MultiTable: React.FunctionComponent = () => {
             return
         }
         const df = new DataFrame(table)
+        console.log(df.info())
         const fieldsTmp = initFields(df.info())
         const switcherFields: any = initSwitcherFields(fieldsTmp)
         console.log(switcherFields)

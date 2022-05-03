@@ -75,20 +75,20 @@ const ImportTable: React.FunctionComponent = (props) => {
             info: df.info()
         }
         console.log(addDataFrom)
-        let res = await addTable(addDataFrom)
+        const res = await addTable(addDataFrom)
         console.log(res)
-        if (res.data.code === 1){
-            alert('上传数据失败')
+        if (res.data.code === 1) {
+            alert('上传数据失败 info:' + res.data.message)
             return
         }
-        res = await addTableName(addTableFrom)
-        console.log(res)
-        if (res.data.code === 1){
-            alert('添加数据表失败')
-            return
-        }
-        openNotification('top')
-        alert('上传成功')
+        // res = await addTableName(addTableFrom)
+        // console.log(res)
+        // if (res.data.code === 1){
+        //     alert('添加数据表失败')
+        //     return
+        // }
+        // openNotification('top')
+        alert('上传成功, 有效数据' + res.data.data + '条')
     }
 
     const onTableNameChange = (event: any) => {

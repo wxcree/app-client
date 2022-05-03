@@ -71,6 +71,8 @@ export function initFields(infos: FieldsInfo) {
             } else {
                 columns.push(infos[i].name)
             }
+        } else if (infos[i].type === 'date') {
+            columns.push(infos[i].name)
         }
     }
     return {
