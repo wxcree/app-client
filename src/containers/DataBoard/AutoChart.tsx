@@ -4,23 +4,33 @@ import MySelect from '@/components/Select/MySelect'
 import { CaretDownOutlined } from '@ant-design/icons'
 import { StepBar } from '@/components/StepBar'
 import { SelectView, FromView, ChartView } from './views'
-
+import { Typography } from 'antd'
+const { Title } = Typography
+import './index.less'
+import { ISelect } from './views/SelectView'
 
 const MyAutoChart: React.FC = () => {
-    const [currentStep, setcurrentStep] = React.useState<number>(1)
+    const [currentStep, setcurrentStep] = React.useState<number>(0)
+    const [tableInfo, settableInfo] = React.useState<ISelect>()
 
     const onStepChange = (currentStep: number) => {
         setcurrentStep(currentStep)
     }
 
+    const onSelectReady = (info: ISelect) => {
+        console.log(info)
+        settableInfo(info)
+        setcurrentStep(1)
+    }
+
     const SelectContent = (
         <>
-            <SelectView />
+            <SelectView onReady={onSelectReady} />
         </>
     )
     const FromSelect = (
         <>
-            <FromView />
+            <FromView info={tableInfo}/>
         </>
     )
 
@@ -38,7 +48,7 @@ const MyAutoChart: React.FC = () => {
             content: SelectContent
         },
         {
-            title: 'manifest',
+            title: 'Manifest',
             desc: 'Advices with lint recommended from data:',
             content: FromSelect
         },
@@ -53,9 +63,9 @@ const MyAutoChart: React.FC = () => {
         <>
             <StepBar current={currentStep} onChange={onStepChange} steps={steps} />
 
-            <p>{steps[currentStep].desc}</p>
+            <Title level={3}>{steps[currentStep].desc}</Title>
 
-            <div className="steps-content" style={{ height: 'calc(100% - 80px)' }}>
+            <div className="steps-content" style={{ height: 'calc(100% - 200px)' }}>
                 {steps[currentStep].content}
             </div>
         </>
