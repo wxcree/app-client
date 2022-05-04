@@ -8,10 +8,33 @@ import { Typography } from 'antd'
 const { Title } = Typography
 import './index.less'
 import { ISelect } from './views/SelectView'
+import { IChartConfig, IColInfo, IFrom } from './views/FromView'
+import { DataFrame } from '@antv/data-wizard'
+import { initColumnFields, initFields, initSwitcherFields } from '@/utils/table'
+import { getTableMutil } from '@/services/table'
 
 const MyAutoChart: React.FC = () => {
     const [currentStep, setcurrentStep] = React.useState<number>(0)
     const [tableInfo, settableInfo] = React.useState<ISelect>()
+    const [colInfo, setColInfo] = React.useState<IColInfo>()
+
+    const [chartConfig, setchartConfig] = React.useState<IChartConfig>({})
+    const [chartData, setChartData] = React.useState<any>([])
+
+    React.useEffect(() => {
+        if (tableInfo !== undefined) {
+            const df = new DataFrame(tableInfo.tableData)
+            console.log(df.info())
+            const fieldsTmp = initFields(df.info())
+            const fields: any = initColumnFields(fieldsTmp)
+            console.log(fields)
+            const mutilFrom: IColInfo = {
+                measure: [...fields['columns']['items'], ...fields['rows']['items']],
+                value: fields['values']['items']
+            }
+            setColInfo(mutilFrom)
+        }
+    }, [tableInfo])
 
     const onStepChange = (currentStep: number) => {
         setcurrentStep(currentStep)
@@ -23,6 +46,21 @@ const MyAutoChart: React.FC = () => {
         setcurrentStep(1)
     }
 
+    const onFromReady = async (info: IChartConfig) => {
+        console.log(info)
+        console.log(tableInfo)
+        setchartConfig(info)
+        const mutilFrom = {
+            ...tableInfo?.tableInfo,
+            columns: info.serise === undefined ? [info.x?.name] : [info.x?.name, info.serise.name],
+            values: [info?.y?.name]
+        }
+        console.log(mutilFrom)
+        const newData = await getTableMutil(mutilFrom)
+        console.log(newData)
+        setChartData(newData.data.data)
+    }
+
     const SelectContent = (
         <>
             <SelectView onReady={onSelectReady} />
@@ -30,13 +68,13 @@ const MyAutoChart: React.FC = () => {
     )
     const FromSelect = (
         <>
-            <FromView info={tableInfo}/>
+            <FromView info={tableInfo} colInfo={colInfo} onReady={onFromReady} />
         </>
     )
 
     const resultContent = (
         <>
-            <ChartView />
+            <ChartView table={chartData} config={chartConfig} />
         </>
     )
     // manifest

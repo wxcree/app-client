@@ -109,3 +109,26 @@ export function initSwitcherFields(fields: Fields) {
         }
     }
 }
+
+export function initColumnFields(fields: Fields) {
+    return {
+        rows: {
+            selectable: true,
+            items: fields.rows?.map((i: string) => {
+                return i
+            })
+        },
+        columns: {
+            selectable: true,
+            items: fields.columns?.map((i: string) => {
+                return i
+            })
+        },
+        values: {
+            selectable: true,
+            items: fields.values?.map((i: string) => {
+                return i
+            })
+        }
+    }
+}
