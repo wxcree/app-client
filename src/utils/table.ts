@@ -3,6 +3,11 @@ import { FieldsInfo } from '@antv/data-wizard/lib/dataset'
 import { SwitcherResult } from '@antv/s2-react/esm/components/switcher/interface'
 import { Fields } from '@antv/s2'
 
+export interface TableBascInfo {
+    pkgName: string
+    tableName: string
+}
+
 export function getClomus(tableData: any[]) {
     const columns = []
     for (const key in tableData[0]) {

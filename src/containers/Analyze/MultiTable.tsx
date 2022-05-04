@@ -15,15 +15,11 @@ import {
     generateFields,
     generateSwitcherFields,
     initFields,
-    initSwitcherFields
+    initSwitcherFields,
+    TableBascInfo
 } from '@/utils/table'
 import { SwitcherResult } from '@antv/s2-react/esm/components/switcher/interface'
 import './index.less'
-
-interface TableBascInfo {
-    pkgName: string
-    tableName: string
-}
 
 const MultiTable: React.FunctionComponent = () => {
     const [DataPkgs, setDataPkgs] = React.useState<any>([])
