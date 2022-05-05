@@ -57,14 +57,8 @@ interface IFromItem {
     element: JSX.Element
 }
 
-interface IFold {
-    xs: string[] | undefined
-    ys: string[] | undefined
-    seris: string[] | undefined
-    onReady: (value: IChartConfig) => void
-}
-
 export interface IChartConfig {
+    type: string
     x?: {
         name: string
         type: string
@@ -79,8 +73,18 @@ export interface IChartConfig {
     }
 }
 
+interface IFold {
+    xs: string[] | undefined
+    ys: string[] | undefined
+    seris: string[] | undefined
+    onReady: (value: IChartConfig) => void
+    type?: string
+}
+
 const FoldFrom: React.FunctionComponent<IFold> = (props) => {
-    const [chartConfig, setchartConfig] = React.useState<IChartConfig>({})
+    const [chartConfig, setchartConfig] = React.useState<IChartConfig>({
+        type: props.type === 'fola' ? 'fola' : 'bar'
+    })
 
     const handleClick = () => {
         props.onReady(chartConfig)
@@ -126,6 +130,55 @@ const FoldFrom: React.FunctionComponent<IFold> = (props) => {
     )
 }
 
+interface IPal {
+    xs: string[] | undefined
+    ys: string[] | undefined
+    onReady: (value: IChartConfig) => void
+    type?: string
+}
+
+const PalFrom: React.FunctionComponent<IPal> = (props) => {
+    const [chartConfig, setchartConfig] = React.useState<IChartConfig>({
+        type: props.type === 'pal' ? 'pal' : 'ring'
+    })
+
+    const handleClick = () => {
+        props.onReady(chartConfig)
+    }
+
+    const handleOnReady = (values: IColSelectReady) => {
+        console.log(values)
+        const tmp: any = Object.assign({}, chartConfig)
+        tmp[values.key] = {
+            name: values.value,
+            type: values.type
+        }
+        console.log(tmp)
+        setchartConfig(tmp)
+    }
+
+    return (
+        <>
+            <ColSelect
+                mykey="x"
+                selectType="x轴/维度"
+                values={props.xs}
+                types={['Data', 'Others']}
+                onReady={handleOnReady}
+            ></ColSelect>
+            <ColSelect
+                mykey="y"
+                selectType="y轴/数值"
+                values={props.ys}
+                types={['SUM', 'CONST']}
+                onReady={handleOnReady}
+            ></ColSelect>
+            <br />
+            <Button onClick={handleClick}>确定</Button>
+        </>
+    )
+}
+
 const FromView: React.FunctionComponent<IFromView> = (props) => {
     const { info } = props
     const { colInfo } = props
@@ -142,12 +195,48 @@ const FromView: React.FunctionComponent<IFromView> = (props) => {
                     ys={colInfo?.value}
                     seris={colInfo?.measure}
                     onReady={onReady}
+                    type={'fold'}
+                ></FoldFrom>
+            )
+        },
+        pal: {
+            element: (
+                <PalFrom
+                    xs={colInfo?.measure}
+                    ys={colInfo?.value}
+                    onReady={onReady}
+                    type={'pal'}
+                ></PalFrom>
+            )
+        },
+        ring: {
+            element: (
+                <PalFrom
+                    xs={colInfo?.measure}
+                    ys={colInfo?.value}
+                    onReady={onReady}
+                    type={'ring'}
+                ></PalFrom>
+            )
+        },
+        bar: {
+            element: (
+                <FoldFrom
+                    xs={colInfo?.measure}
+                    ys={colInfo?.value}
+                    seris={colInfo?.measure}
+                    onReady={onReady}
+                    type={'bar'}
                 ></FoldFrom>
             )
         }
     }
-
-    return <div>{fromArr['fold'].element}</div>
+    console.log(info)
+    const tableType = info.tableMode
+    if (fromArr[tableType] === undefined) {
+        return <div>{'正在施工中'}</div>
+    }
+    return <div>{fromArr[tableType].element}</div>
 }
 
 export default FromView

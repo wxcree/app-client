@@ -7,5 +7,28 @@
 			"path": "../app-server"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"LineCount.showStatusBarItem": true,
+
+    "LineCount.includes": [     
+                        "src/*/**" 
+                        ],    
+
+    "LineCount.excludes": [ 
+                         "**/.vscode/**",
+                        "**/node_modules/**"
+                        ],
+
+    "LineCount.output": {
+                        "txt": true,       
+                        "json": true, 
+                        "csv": true, 
+                        "md": true,       
+                        "outdir":"out"      
+                        },
+    "LineCount.sort": "filename",
+
+    "LineCount.order": "asc",
+        
+	}
 }

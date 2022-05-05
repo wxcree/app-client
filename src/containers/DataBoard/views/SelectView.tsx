@@ -31,7 +31,6 @@ const SelectView: React.FunctionComponent<ISelectProps> = (props) => {
 
     React.useEffect(() => {
         getBasePkgs({}).then((Response) => {
-            console.log(Response)
             setDataPkgs(Response.data.data)
         })
     }, [])
@@ -74,7 +73,7 @@ const SelectView: React.FunctionComponent<ISelectProps> = (props) => {
 
     const radioArr = [
         {
-            value: 'palSvg',
+            value: 'pal',
             img: (
                 <svg
                     viewBox="0 0 1024 1024"
@@ -103,7 +102,7 @@ const SelectView: React.FunctionComponent<ISelectProps> = (props) => {
             )
         },
         {
-            value: 'barSvg',
+            value: 'bar',
             img: (
                 <svg
                     viewBox="0 0 1024 1024"
@@ -144,7 +143,7 @@ const SelectView: React.FunctionComponent<ISelectProps> = (props) => {
             )
         },
         {
-            value: 'ringSvg',
+            value: 'ring',
             img: (
                 <svg
                     viewBox="0 0 1024 1024"
@@ -173,7 +172,7 @@ const SelectView: React.FunctionComponent<ISelectProps> = (props) => {
             )
         },
         {
-            value: 'tableSvg',
+            value: 'table',
             img: (
                 <svg
                     viewBox="0 0 1024 1024"
@@ -213,7 +212,7 @@ const SelectView: React.FunctionComponent<ISelectProps> = (props) => {
             )
         },
         {
-            value: 'foldSvg',
+            value: 'fold',
             img: (
                 <svg
                     viewBox="0 0 1024 1024"

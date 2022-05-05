@@ -3544,6 +3544,709 @@
                     "filename": "yarn.lock"
                 }
             ]
+        },
+        {
+            "version": "0.1.7",
+            "counttime": "2022-05-05 17:41:01",
+            "filesum": 115,
+            "codesum": 6494,
+            "commentsum": 409,
+            "blanksum": 735,
+            "filelist": [
+                {
+                    "blank": 2,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "/home/wxc/app-server/src/domain/IApp.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "/home/wxc/app-server/src/domain/IAuth.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "/home/wxc/app-server/src/domain/IBase.ts"
+                },
+                {
+                    "blank": 1,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "/home/wxc/app-server/src/domain/IConfigs.ts"
+                },
+                {
+                    "blank": 4,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "/home/wxc/app-server/src/domain/IDatapkg.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "/home/wxc/app-server/src/domain/IError.ts"
+                },
+                {
+                    "blank": 1,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "/home/wxc/app-server/src/domain/IPath.ts"
+                },
+                {
+                    "blank": 5,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "/home/wxc/app-server/src/domain/ITable.ts"
+                },
+                {
+                    "blank": 1,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "/home/wxc/app-server/src/domain/ITest.ts"
+                },
+                {
+                    "blank": 1,
+                    "code": 16,
+                    "comment": 1,
+                    "filename": "/home/wxc/app-server/src/middlewares/checkMethod.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 6,
+                    "comment": 1,
+                    "filename": "/home/wxc/app-server/src/middlewares/index.ts"
+                },
+                {
+                    "blank": 1,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "/home/wxc/app-server/src/middlewares/logger.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 25,
+                    "comment": 2,
+                    "filename": "/home/wxc/app-server/src/models/auth.ts"
+                },
+                {
+                    "blank": 1,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "/home/wxc/app-server/src/models/index.ts"
+                },
+                {
+                    "blank": 10,
+                    "code": 95,
+                    "comment": 5,
+                    "filename": "/home/wxc/app-server/src/models/pkg.ts"
+                },
+                {
+                    "blank": 9,
+                    "code": 85,
+                    "comment": 17,
+                    "filename": "/home/wxc/app-server/src/models/table.ts"
+                },
+                {
+                    "blank": 5,
+                    "code": 10,
+                    "comment": 5,
+                    "filename": "/home/wxc/app-server/src/models/test.ts"
+                },
+                {
+                    "blank": 1,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "/home/wxc/app-server/src/route/index.ts"
+                },
+                {
+                    "blank": 4,
+                    "code": 40,
+                    "comment": 5,
+                    "filename": "/home/wxc/app-server/src/route/path.ts"
+                },
+                {
+                    "blank": 1,
+                    "code": 6,
+                    "comment": 3,
+                    "filename": "/home/wxc/app-server/src/route/README.md"
+                },
+                {
+                    "blank": 3,
+                    "code": 5,
+                    "comment": 1,
+                    "filename": "/home/wxc/app-server/src/route/router.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "/home/wxc/app-server/src/route/routes/auth.ts"
+                },
+                {
+                    "blank": 4,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "/home/wxc/app-server/src/route/routes/pkgs.ts"
+                },
+                {
+                    "blank": 5,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "/home/wxc/app-server/src/route/routes/table.ts"
+                },
+                {
+                    "blank": 3,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "/home/wxc/app-server/src/route/routes/test.ts"
+                },
+                {
+                    "blank": 6,
+                    "code": 11,
+                    "comment": 19,
+                    "filename": "/home/wxc/app-server/src/test/index.ts"
+                },
+                {
+                    "blank": 4,
+                    "code": 48,
+                    "comment": 4,
+                    "filename": "/home/wxc/app-server/src/utils/pkg.ts"
+                },
+                {
+                    "blank": 12,
+                    "code": 120,
+                    "comment": 13,
+                    "filename": "/home/wxc/app-server/src/utils/table.ts"
+                },
+                {
+                    "blank": 8,
+                    "code": 85,
+                    "comment": 24,
+                    "filename": "src/components/AdminTable/index.tsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 32,
+                    "comment": 0,
+                    "filename": "src/components/Collapse/index.tsx"
+                },
+                {
+                    "blank": 7,
+                    "code": 39,
+                    "comment": 1,
+                    "filename": "src/components/Collapse/Tree.tsx"
+                },
+                {
+                    "blank": 30,
+                    "code": 151,
+                    "comment": 8,
+                    "filename": "src/components/Draggable/index.tsx"
+                },
+                {
+                    "blank": 9,
+                    "code": 94,
+                    "comment": 9,
+                    "filename": "src/components/Echarts/Echart.tsx"
+                },
+                {
+                    "blank": 12,
+                    "code": 205,
+                    "comment": 11,
+                    "filename": "src/components/Echarts/LineBarChart.tsx"
+                },
+                {
+                    "blank": 12,
+                    "code": 64,
+                    "comment": 0,
+                    "filename": "src/components/Echarts/Pie.tsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "src/components/ImportExcel/index.less"
+                },
+                {
+                    "blank": 4,
+                    "code": 37,
+                    "comment": 0,
+                    "filename": "src/components/ImportExcel/index.tsx"
+                },
+                {
+                    "blank": 8,
+                    "code": 49,
+                    "comment": 9,
+                    "filename": "src/components/ImportExcel/Select.tsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 12,
+                    "comment": 1,
+                    "filename": "src/components/Layout/Header/index.less"
+                },
+                {
+                    "blank": 8,
+                    "code": 86,
+                    "comment": 0,
+                    "filename": "src/components/Layout/Header/index.tsx"
+                },
+                {
+                    "blank": 5,
+                    "code": 50,
+                    "comment": 1,
+                    "filename": "src/components/Layout/Menus/index.tsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 72,
+                    "comment": 0,
+                    "filename": "src/components/Layout/Menus/menuConfig.ts"
+                },
+                {
+                    "blank": 8,
+                    "code": 107,
+                    "comment": 6,
+                    "filename": "src/components/Layout/TagPageOpen/index.less"
+                },
+                {
+                    "blank": 16,
+                    "code": 146,
+                    "comment": 13,
+                    "filename": "src/components/Layout/TagPageOpen/index.tsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 41,
+                    "comment": 1,
+                    "filename": "src/components/Layout/TagPageOpen/Tag.tsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 108,
+                    "comment": 1,
+                    "filename": "src/components/LoadingBar/index.less"
+                },
+                {
+                    "blank": 20,
+                    "code": 118,
+                    "comment": 28,
+                    "filename": "src/components/LoadingBar/index.tsx"
+                },
+                {
+                    "blank": 11,
+                    "code": 51,
+                    "comment": 0,
+                    "filename": "src/components/LoadingFull/index.less"
+                },
+                {
+                    "blank": 2,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "src/components/LoadingFull/index.tsx"
+                },
+                {
+                    "blank": 8,
+                    "code": 70,
+                    "comment": 0,
+                    "filename": "src/components/Select/ColSelect.tsx"
+                },
+                {
+                    "blank": 8,
+                    "code": 88,
+                    "comment": 0,
+                    "filename": "src/components/Select/MySelect.tsx"
+                },
+                {
+                    "blank": 5,
+                    "code": 48,
+                    "comment": 1,
+                    "filename": "src/components/StepBar/index.tsx"
+                },
+                {
+                    "blank": 51,
+                    "code": 247,
+                    "comment": 1,
+                    "filename": "src/containers/403/index.less"
+                },
+                {
+                    "blank": 7,
+                    "code": 387,
+                    "comment": 0,
+                    "filename": "src/containers/403/index.tsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src/containers/Analyze/index.less"
+                },
+                {
+                    "blank": 11,
+                    "code": 137,
+                    "comment": 1,
+                    "filename": "src/containers/Analyze/MultiTable.tsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "src/containers/ComponentsPage/drag.less"
+                },
+                {
+                    "blank": 3,
+                    "code": 31,
+                    "comment": 0,
+                    "filename": "src/containers/ComponentsPage/DragAblePage.tsx"
+                },
+                {
+                    "blank": 5,
+                    "code": 27,
+                    "comment": 0,
+                    "filename": "src/containers/ComponentsPage/LoadingBar.tsx"
+                },
+                {
+                    "blank": 13,
+                    "code": 104,
+                    "comment": 1,
+                    "filename": "src/containers/DataBoard/AutoChart.tsx"
+                },
+                {
+                    "blank": 6,
+                    "code": 27,
+                    "comment": 2,
+                    "filename": "src/containers/DataBoard/index.less"
+                },
+                {
+                    "blank": 10,
+                    "code": 138,
+                    "comment": 2,
+                    "filename": "src/containers/DataBoard/views/ChartView.tsx"
+                },
+                {
+                    "blank": 22,
+                    "code": 219,
+                    "comment": 1,
+                    "filename": "src/containers/DataBoard/views/FromView.tsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "src/containers/DataBoard/views/index.ts"
+                },
+                {
+                    "blank": 10,
+                    "code": 260,
+                    "comment": 1,
+                    "filename": "src/containers/DataBoard/views/SelectView.tsx"
+                },
+                {
+                    "blank": 5,
+                    "code": 46,
+                    "comment": 0,
+                    "filename": "src/containers/Home/CommentList.tsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "src/containers/Home/index.less"
+                },
+                {
+                    "blank": 9,
+                    "code": 87,
+                    "comment": 4,
+                    "filename": "src/containers/Home/index.tsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 30,
+                    "comment": 0,
+                    "filename": "src/containers/Home/NumberCard/index.less"
+                },
+                {
+                    "blank": 3,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "src/containers/Home/NumberCard/index.tsx"
+                },
+                {
+                    "blank": 5,
+                    "code": 67,
+                    "comment": 0,
+                    "filename": "src/containers/Home/OrderTable.tsx"
+                },
+                {
+                    "blank": 6,
+                    "code": 84,
+                    "comment": 1,
+                    "filename": "src/containers/Login/index.less"
+                },
+                {
+                    "blank": 10,
+                    "code": 71,
+                    "comment": 1,
+                    "filename": "src/containers/Login/index.tsx"
+                },
+                {
+                    "blank": 10,
+                    "code": 49,
+                    "comment": 0,
+                    "filename": "src/containers/Login/Input.tsx"
+                },
+                {
+                    "blank": 49,
+                    "code": 220,
+                    "comment": 1,
+                    "filename": "src/containers/NoFind/index.less"
+                },
+                {
+                    "blank": 9,
+                    "code": 443,
+                    "comment": 0,
+                    "filename": "src/containers/NoFind/index.tsx"
+                },
+                {
+                    "blank": 14,
+                    "code": 140,
+                    "comment": 12,
+                    "filename": "src/containers/Table/ImportTablePage.tsx"
+                },
+                {
+                    "blank": 11,
+                    "code": 112,
+                    "comment": 6,
+                    "filename": "src/containers/Table/index.tsx"
+                },
+                {
+                    "blank": 8,
+                    "code": 48,
+                    "comment": 18,
+                    "filename": "src/hoc/utils.ts"
+                },
+                {
+                    "blank": 3,
+                    "code": 16,
+                    "comment": 1,
+                    "filename": "src/hoc/withBreadcrumb.tsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 24,
+                    "comment": 0,
+                    "filename": "src/hoc/withDelay.tsx"
+                },
+                {
+                    "blank": 3,
+                    "code": 10,
+                    "comment": 1,
+                    "filename": "src/redux/index.ts"
+                },
+                {
+                    "blank": 1,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "src/redux/modules/auth/actionCreators.ts"
+                },
+                {
+                    "blank": 5,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "src/redux/modules/auth/actionTypes.ts"
+                },
+                {
+                    "blank": 3,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "src/redux/modules/auth/index.ts"
+                },
+                {
+                    "blank": 1,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "src/redux/modules/home/actionCreators.ts"
+                },
+                {
+                    "blank": 9,
+                    "code": 40,
+                    "comment": 2,
+                    "filename": "src/redux/modules/home/actionTypes.ts"
+                },
+                {
+                    "blank": 3,
+                    "code": 28,
+                    "comment": 0,
+                    "filename": "src/redux/modules/home/index.ts"
+                },
+                {
+                    "blank": 6,
+                    "code": 42,
+                    "comment": 24,
+                    "filename": "src/redux/modules/settings/actionCreators.ts"
+                },
+                {
+                    "blank": 15,
+                    "code": 62,
+                    "comment": 52,
+                    "filename": "src/redux/modules/settings/actionTypes.ts"
+                },
+                {
+                    "blank": 22,
+                    "code": 106,
+                    "comment": 13,
+                    "filename": "src/redux/modules/settings/index.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 18,
+                    "comment": 0,
+                    "filename": "src/redux/modules/table/actionCreators.ts"
+                },
+                {
+                    "blank": 7,
+                    "code": 25,
+                    "comment": 1,
+                    "filename": "src/redux/modules/table/actionTypes.ts"
+                },
+                {
+                    "blank": 3,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "src/redux/modules/table/index.ts"
+                },
+                {
+                    "blank": 3,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "src/redux/reducers.ts"
+                },
+                {
+                    "blank": 5,
+                    "code": 12,
+                    "comment": 10,
+                    "filename": "src/redux/Types.d.ts"
+                },
+                {
+                    "blank": 4,
+                    "code": 77,
+                    "comment": 1,
+                    "filename": "src/routes/config.ts"
+                },
+                {
+                    "blank": 8,
+                    "code": 64,
+                    "comment": 6,
+                    "filename": "src/routes/index.tsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 12,
+                    "comment": 1,
+                    "filename": "src/services/auth.ts"
+                },
+                {
+                    "blank": 6,
+                    "code": 36,
+                    "comment": 1,
+                    "filename": "src/services/axios.ts"
+                },
+                {
+                    "blank": 1,
+                    "code": 10,
+                    "comment": 1,
+                    "filename": "src/services/data.ts"
+                },
+                {
+                    "blank": 1,
+                    "code": 10,
+                    "comment": 1,
+                    "filename": "src/services/home.ts"
+                },
+                {
+                    "blank": 7,
+                    "code": 28,
+                    "comment": 2,
+                    "filename": "src/services/table.ts"
+                },
+                {
+                    "filename": "src/static/favicon.ico",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src/static/favicon1.ico",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "src/static/timg.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 0,
+                    "filename": "src/styles/index.less"
+                },
+                {
+                    "blank": 1,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "src/styles/mixin.less"
+                },
+                {
+                    "blank": 4,
+                    "code": 6,
+                    "comment": 1,
+                    "filename": "src/styles/vars.less"
+                },
+                {
+                    "blank": 8,
+                    "code": 23,
+                    "comment": 8,
+                    "filename": "src/utils/common.ts"
+                },
+                {
+                    "blank": 6,
+                    "code": 32,
+                    "comment": 8,
+                    "filename": "src/utils/exportExcel.ts"
+                },
+                {
+                    "blank": 3,
+                    "code": 32,
+                    "comment": 8,
+                    "filename": "src/utils/handleXlsx.ts"
+                },
+                {
+                    "blank": 9,
+                    "code": 43,
+                    "comment": 5,
+                    "filename": "src/utils/importExcel.ts"
+                },
+                {
+                    "blank": 8,
+                    "code": 143,
+                    "comment": 5,
+                    "filename": "src/utils/table.ts"
+                },
+                {
+                    "blank": 7,
+                    "code": 53,
+                    "comment": 15,
+                    "filename": "src/utils/throttle.ts"
+                }
+            ]
         }
     ]
 }

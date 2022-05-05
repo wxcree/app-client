@@ -2,6 +2,7 @@
 import { FieldsInfo } from '@antv/data-wizard/lib/dataset'
 import { SwitcherResult } from '@antv/s2-react/esm/components/switcher/interface'
 import { Fields } from '@antv/s2'
+import { any, string } from 'prop-types'
 
 export interface TableBascInfo {
     pkgName: string
@@ -131,4 +132,25 @@ export function initColumnFields(fields: Fields) {
             })
         }
     }
+}
+
+export function converValuesType(data: any, colName: string, type: string) {
+    if (type === 'number') {
+        for (const i in data){
+            try{
+                data[i][colName] = Number(data[i][colName])
+            }catch(e){
+                data[i][colName] = 0
+            }
+        }
+    } else if (type === 'string') {
+        for (const i in data){
+            try{
+                data[i][colName] = String(data[i][colName])
+            }catch(e){
+                data[i][colName] = 0
+            }
+        }
+    }
+    return data
 }

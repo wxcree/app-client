@@ -18,16 +18,14 @@ const MyAutoChart: React.FC = () => {
     const [tableInfo, settableInfo] = React.useState<ISelect>()
     const [colInfo, setColInfo] = React.useState<IColInfo>()
 
-    const [chartConfig, setchartConfig] = React.useState<IChartConfig>({})
+    const [chartConfig, setchartConfig] = React.useState<IChartConfig>()
     const [chartData, setChartData] = React.useState<any>([])
 
     React.useEffect(() => {
         if (tableInfo !== undefined) {
             const df = new DataFrame(tableInfo.tableData)
-            console.log(df.info())
             const fieldsTmp = initFields(df.info())
             const fields: any = initColumnFields(fieldsTmp)
-            console.log(fields)
             const mutilFrom: IColInfo = {
                 measure: [...fields['columns']['items'], ...fields['rows']['items']],
                 value: fields['values']['items']
@@ -41,7 +39,6 @@ const MyAutoChart: React.FC = () => {
     }
 
     const onSelectReady = (info: ISelect) => {
-        console.log(info)
         settableInfo(info)
         setcurrentStep(1)
     }
@@ -59,6 +56,7 @@ const MyAutoChart: React.FC = () => {
         const newData = await getTableMutil(mutilFrom)
         console.log(newData)
         setChartData(newData.data.data)
+        setcurrentStep(2)
     }
 
     const SelectContent = (
