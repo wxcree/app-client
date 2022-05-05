@@ -36,16 +36,6 @@ const menus: Array<MenusConfig> = [
                 path: '/app/analyze/MultiTable',
                 title: '多维分析'
             },
-            {
-                icon: 'loading-3-quarters',
-                path: '/app/components/loadingBar',
-                title: 'LoadingBar'
-            },
-            {
-                icon: 'drag',
-                path: '/app/components/dragAblePage',
-                title: '简易拖拽'
-            }
         ]
     },
     {
@@ -57,16 +47,6 @@ const menus: Array<MenusConfig> = [
                 path: '/app/databoard/AutoChart',
                 title: '自助图表'
             },
-            {
-                icon: 'loading-3-quarters',
-                path: '/app/components/loadingBar',
-                title: 'LoadingBar'
-            },
-            {
-                icon: 'drag',
-                path: '/app/components/dragAblePage',
-                title: '简易拖拽'
-            }
         ]
     }
 ]

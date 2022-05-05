@@ -83,7 +83,7 @@ interface IFold {
 
 const FoldFrom: React.FunctionComponent<IFold> = (props) => {
     const [chartConfig, setchartConfig] = React.useState<IChartConfig>({
-        type: props.type === 'fola' ? 'fola' : 'bar'
+        type: props.type === undefined ? 'fola' : props.type
     })
 
     const handleClick = () => {
@@ -139,7 +139,7 @@ interface IPal {
 
 const PalFrom: React.FunctionComponent<IPal> = (props) => {
     const [chartConfig, setchartConfig] = React.useState<IChartConfig>({
-        type: props.type === 'pal' ? 'pal' : 'ring'
+        type: props.type === undefined ? 'pal' : props.type
     })
 
     const handleClick = () => {
@@ -227,6 +227,17 @@ const FromView: React.FunctionComponent<IFromView> = (props) => {
                     seris={colInfo?.measure}
                     onReady={onReady}
                     type={'bar'}
+                ></FoldFrom>
+            )
+        },
+        area: {
+            element: (
+                <FoldFrom
+                    xs={colInfo?.measure}
+                    ys={colInfo?.value}
+                    seris={colInfo?.measure}
+                    onReady={onReady}
+                    type={'area'}
                 ></FoldFrom>
             )
         }

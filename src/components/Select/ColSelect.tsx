@@ -64,7 +64,7 @@ const ColSelect = (props: IProps) => {
                     </Option>
                 ))}
             </Select>
-            <Radio.Group onChange={handleChange}>
+            <Radio.Group onChange={handleChange} style={{ width: 200 }}>
                 {types.map((i) => (
                     <Button value={i} key={i}>
                         {i}

@@ -3,7 +3,7 @@ import { Line } from '@ant-design/plots'
 import { IChartConfig } from './FromView'
 import { Pie } from '@ant-design/plots'
 import { converValuesType } from '@/utils/table'
-import { Column } from '@ant-design/charts'
+import { Area, Column } from '@ant-design/charts'
 
 interface IChartView {
     table?: any
@@ -34,7 +34,7 @@ const LineChart = (props: IChartView) => {
             }
         }
         return <Line {...chartConfig} />
-    } else {
+    } else if (config.type === 'bar') {
         const chartConfig: any = {
             data: data,
             xField: config.x.name,
@@ -55,6 +55,16 @@ const LineChart = (props: IChartView) => {
             }
         }
         return <Column {...chartConfig} />
+    } else {
+        const chartConfig = {
+            data: data,
+            xField: config.x.name,
+            yField: config.y.name,
+            seriesField: config?.serise?.name,
+        }
+        console.log(chartConfig)
+
+        return <Area {...chartConfig} />
     }
     return <></>
 }
@@ -140,7 +150,8 @@ const ChartView: React.FunctionComponent<IChartView> = (props) => {
         fold: <LineChart {...props} />,
         pal: <PalChart {...props} />,
         ring: <PalChart {...props} />,
-        bar: <LineChart {...props} />
+        bar: <LineChart {...props} />,
+        area: <LineChart {...props} />,
     }
 
     //return <PalChart {...props} />
