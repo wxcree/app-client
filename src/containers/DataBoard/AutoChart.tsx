@@ -80,17 +80,17 @@ const MyAutoChart: React.FC = () => {
     const steps = [
         {
             title: 'Data',
-            desc: 'Source data:',
+            desc: '选择数据集与所用图表:',
             content: SelectContent
         },
         {
             title: 'Manifest',
-            desc: 'Advices with lint recommended from data:',
+            desc: '选择所用字段与类型:',
             content: FromSelect
         },
         {
             title: 'Chart',
-            desc: 'Render chart but you also know the limits.',
+            desc: '图表展示:',
             content: resultContent
         }
     ]

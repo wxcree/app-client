@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { ISelect } from './SelectView'
 import ColSelect, { IColSelectReady } from '@/components/Select/ColSelect'
-import { Button } from 'antd'
+import { Button, Col, Row } from 'antd'
 
 const foldConfig = {
     xField: 'year',
@@ -111,21 +111,27 @@ const FoldFrom: React.FunctionComponent<IFold> = (props) => {
                 onReady={handleOnReady}
             ></ColSelect>
             <ColSelect
-                mykey="y"
-                selectType="y轴/数值"
-                values={props.ys}
-                types={['SUM', 'CONST']}
-                onReady={handleOnReady}
-            ></ColSelect>
-            <ColSelect
                 mykey="serise"
                 selectType="分组量度"
                 values={props.xs}
                 types={['Data', 'Others']}
                 onReady={handleOnReady}
             ></ColSelect>
+            <ColSelect
+                mykey="y"
+                selectType="y轴/数值"
+                values={props.ys}
+                types={['SUM', 'Const', 'Avg']}
+                onReady={handleOnReady}
+            ></ColSelect>
             <br />
-            <Button onClick={handleClick}>确定</Button>
+            <Row justify="end" style={{padding: '10px'}}>
+                <Col span={4}></Col>
+                <Col span={4}>
+                    <Button onClick={handleClick}>确定</Button>
+                </Col>
+                <Col span={4}></Col>
+            </Row>
         </>
     )
 }
@@ -170,11 +176,17 @@ const PalFrom: React.FunctionComponent<IPal> = (props) => {
                 mykey="y"
                 selectType="y轴/数值"
                 values={props.ys}
-                types={['SUM', 'CONST']}
+                types={['SUM', 'Const', 'Avg']}
                 onReady={handleOnReady}
             ></ColSelect>
             <br />
-            <Button onClick={handleClick}>确定</Button>
+            <Row justify="end" style={{padding: '10px'}}>
+                <Col span={4}></Col>
+                <Col span={4}>
+                    <Button onClick={handleClick}>确定</Button>
+                </Col>
+                <Col span={4}></Col>
+            </Row>
         </>
     )
 }
@@ -247,7 +259,12 @@ const FromView: React.FunctionComponent<IFromView> = (props) => {
     if (fromArr[tableType] === undefined) {
         return <div>{'正在施工中'}</div>
     }
-    return <div>{fromArr[tableType].element}</div>
+    return (
+        <div>
+            <br />
+            {fromArr[tableType].element}
+        </div>
+    )
 }
 
 export default FromView
