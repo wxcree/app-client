@@ -1,6 +1,7 @@
 import { Tree } from 'antd'
 import React from 'react'
 import { IPkgData } from '@/redux/modules/table/actionTypes'
+import { FileExcelOutlined, SolutionOutlined } from '@ant-design/icons'
 
 const { DirectoryTree } = Tree
 
@@ -21,10 +22,16 @@ const MyTree = (props: ITree) => {
         tmp['children'] = []
         for (const j in datapkgs[i]['tables']) {
             tmp['children'].push({
-                title: datapkgs[i]['tables'][j],
-                key: datapkgs[i]['tables'][j],
+                title: datapkgs[i]['tables'][j]['tableName'],
+                key: datapkgs[i]['tables'][j]['tableName'],
                 pkgName: tmp['title'],
-                isLeaf: true
+                isLeaf: true,
+                icon:
+                    datapkgs[i]['tables'][j]['type'] === 0 ? (
+                        <FileExcelOutlined />
+                    ) : (
+                        <SolutionOutlined />
+                    )
             })
         }
         treeData.push(tmp)
