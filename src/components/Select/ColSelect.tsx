@@ -29,7 +29,7 @@ const ColSelect = (props: IProps) => {
 
     React.useEffect(() => {
         if (selectedType !== undefined && selectedValue !== undefined) {
-            console.log(mykey)
+            // console.log(mykey)
             onReady({
                 value: selectedValue,
                 type: selectedType,

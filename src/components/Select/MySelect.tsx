@@ -37,7 +37,7 @@ const MySelect = (props: IProps) => {
     const handleValue = (values: any) => {
         setSelectedValues(values)
     }
-    console.log()
+
     const filteredMeasures = measures.filter(
         (o) => !(selectedRow.includes(o) || selectedColumn.includes(o))
     )

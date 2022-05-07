@@ -35,7 +35,7 @@ const MultiTable: React.FunctionComponent = () => {
 
     const updatePkg = () => {
         getBasePkgs({}).then((Response) => {
-            console.log(Response.data.data)
+            // console.log(Response.data.data)
             setDataPkgs(Response.data.data)
         })
     }
@@ -45,21 +45,20 @@ const MultiTable: React.FunctionComponent = () => {
     }, [])
 
     const onSubmit = async (result: SwitcherResult) => {
-        console.log('result:', result)
+        // console.log('result:', result)
         const newFields = generateFields(result)
         setFields(newFields)
         setSwitcherFields(generateSwitcherFields(result))
-        console.log(DataPkgs)
-        // TODO: 缺少数据升维的过程
+        // console.log(DataPkgs)
         if (currTableInfo === undefined) return
         const mutilFrom = {
             ...currTableInfo,
             columns: [...newFields['columns'], ...newFields['rows']],
             values: newFields['values']
         }
-        console.log(mutilFrom)
+        // console.log(mutilFrom)
         const newData = await getTableMutil(mutilFrom)
-        console.log(newData)
+        // console.log(newData)
         setS2Data(newData.data.data)
     }
 
@@ -76,7 +75,7 @@ const MultiTable: React.FunctionComponent = () => {
         setCurrTableInfo(from)
         const res = await getTable(from)
         const table = res.data.data
-        console.log(table)
+        // console.log(table)
         const tableInfo = DataPkgs.filter((i: any) => i.pkgName ===  pkgName)[0].tables.filter((i: any) => i.tableName === tableName)[0]
         if (table === undefined) {
             alert('该表为空')

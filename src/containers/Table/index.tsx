@@ -48,7 +48,7 @@ const TablePage: React.FunctionComponent = (props) => {
 
     const updatePkg = () => {
         getBasePkgs({}).then((Response) => {
-            console.log(Response.data.data)
+            // console.log(Response.data.data)
             setDataPkgs(Response.data.data)
         })
     }
@@ -94,7 +94,7 @@ const TablePage: React.FunctionComponent = (props) => {
         const data = Object.assign({}, s2DataConfig)
         data.fields = generateFields(result)
         setS2DataConfig(data)
-        console.log(data)
+        // console.log(data)
         setSwitcherFields(generateSwitcherFields(result))
         setHiddenColumnFields(result.columns.hideItems.map((i: any) => i.id))
     }

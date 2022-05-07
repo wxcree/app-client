@@ -91,13 +91,13 @@ const FoldFrom: React.FunctionComponent<IFold> = (props) => {
     }
 
     const handleOnReady = (values: IColSelectReady) => {
-        console.log(values)
+        // console.log(values)
         const tmp: any = Object.assign({}, chartConfig)
         tmp[values.key] = {
             name: values.value,
             type: values.type
         }
-        console.log(tmp)
+        // console.log(tmp)
         setchartConfig(tmp)
     }
 
@@ -153,13 +153,13 @@ const PalFrom: React.FunctionComponent<IPal> = (props) => {
     }
 
     const handleOnReady = (values: IColSelectReady) => {
-        console.log(values)
+        // console.log(values)
         const tmp: any = Object.assign({}, chartConfig)
         tmp[values.key] = {
             name: values.value,
             type: values.type
         }
-        console.log(tmp)
+        // console.log(tmp)
         setchartConfig(tmp)
     }
 
@@ -254,7 +254,7 @@ const FromView: React.FunctionComponent<IFromView> = (props) => {
             )
         }
     }
-    console.log(info)
+    // console.log(info)
     const tableType = info.tableMode
     if (fromArr[tableType] === undefined) {
         return <div>{'正在施工中'}</div>

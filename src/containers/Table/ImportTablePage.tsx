@@ -31,7 +31,7 @@ const ImportTable: React.FunctionComponent = (props) => {
 
     React.useEffect(() => {
         getBasePkgs({}).then((Response) => {
-            console.log(Response)
+            // console.log(Response)
             setDataPkgs(Response.data.data)
         })
     }, [])
@@ -46,7 +46,7 @@ const ImportTable: React.FunctionComponent = (props) => {
     }
 
     const handleCallback = (data: ImportExcelOptions[]) => {
-        console.log(data)
+        // console.log(data)
         const newColumns = getClomus(data)
         setTableColumns(newColumns)
         setTableData(data)
@@ -65,7 +65,7 @@ const ImportTable: React.FunctionComponent = (props) => {
             pkgName: selectPkg,
             tableName: tableName
         }
-        console.log(addTableFrom)
+        // console.log(addTableFrom)
         // TODO: 添加数据到 tables
         const df = new DataFrame(TableData)
         const addDataFrom = {
@@ -74,9 +74,9 @@ const ImportTable: React.FunctionComponent = (props) => {
             data: TableData,
             info: df.info()
         }
-        console.log(addDataFrom)
+        // console.log(addDataFrom)
         const res = await addTable(addDataFrom)
-        console.log(res)
+        // console.log(res)
         if (res.data.code === 1) {
             alert('上传数据失败 info:' + res.data.message)
             return
@@ -110,7 +110,7 @@ const ImportTable: React.FunctionComponent = (props) => {
         setPkgs({
             pkgName: name
         }).then((Response) => {
-            console.log(Response)
+            // console.log(Response)
             if (Response.data.code !== 0) {
                 alert('添加失败')
                 return

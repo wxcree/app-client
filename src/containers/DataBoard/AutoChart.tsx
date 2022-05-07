@@ -44,17 +44,17 @@ const MyAutoChart: React.FC = () => {
     }
 
     const onFromReady = async (info: IChartConfig) => {
-        console.log(info)
-        console.log(tableInfo)
+        // console.log(info)
+        // console.log(tableInfo)
         setchartConfig(info)
         const mutilFrom = {
             ...tableInfo?.tableInfo,
             columns: info.serise === undefined ? [info.x?.name] : [info.x?.name, info.serise.name],
             values: [info?.y?.name]
         }
-        console.log(mutilFrom)
+        // console.log(mutilFrom)
         const newData = await getTableMutil(mutilFrom)
-        console.log(newData)
+        // console.log(newData)
         setChartData(newData.data.data)
         setcurrentStep(2)
     }

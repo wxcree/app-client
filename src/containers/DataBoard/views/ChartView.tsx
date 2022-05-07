@@ -62,7 +62,7 @@ const LineChart = (props: IChartView) => {
             yField: config.y.name,
             seriesField: config?.serise?.name,
         }
-        console.log(chartConfig)
+        // console.log(chartConfig)
 
         return <Area {...chartConfig} />
     }
@@ -77,7 +77,7 @@ const PalChart = (props: IChartView) => {
         return <div>{'参数错误'}</div>
 
     const data = converValuesType(table, config.y.name, 'number')
-    console.log(table)
+    // console.log(table)
     let chartConfig: any
     if (config.type === 'pal') {
         chartConfig = {
@@ -135,7 +135,7 @@ const PalChart = (props: IChartView) => {
 }
 
 const ChartView: React.FunctionComponent<IChartView> = (props) => {
-    console.log(props)
+    // console.log(props)
     if (
         props.config === undefined ||
         props.table === undefined ||
