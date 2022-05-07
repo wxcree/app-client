@@ -6,7 +6,7 @@ import { actionTypes, actionCreators } from '@/redux/modules/table'
 import { RootState } from '@/redux/Types'
 import { ThunkDispatch } from 'redux-thunk'
 import MyTree from '@/components/Collapse/Tree'
-import { getBasePkgs, getTable, getTableMutil } from '@/services/table'
+import { getBasePkgs, getTable, getTableMutil, saveTable } from '@/services/table'
 import { SheetComponent, Switcher } from '@antv/s2-react'
 import '@antv/s2-react/dist/style.min.css'
 import { DataFrame } from '@antv/data-wizard'
@@ -20,21 +20,28 @@ import {
 } from '@/utils/table'
 import { SwitcherResult } from '@antv/s2-react/esm/components/switcher/interface'
 import './index.less'
+import SaveTableFrom, { ISaveTable } from '@/components/SaveFrom'
+import '@antv/s2-react/dist/style.min.css'
 
 const MultiTable: React.FunctionComponent = () => {
     const [DataPkgs, setDataPkgs] = React.useState<any>([])
     const [SelectNode, setSelectNode] = React.useState<React.Key>()
 
-    const [fields, setFields] = React.useState({})
+    const [fields, setFields] = React.useState<any>({})
     const [switcherFields, setSwitcherFields] = React.useState({})
     const [S2Data, setS2Data] = React.useState<Data[]>([])
 
     const [currTableInfo, setCurrTableInfo] = React.useState<TableBascInfo>()
 
-    React.useEffect(() => {
+    const updatePkg = () => {
         getBasePkgs({}).then((Response) => {
+            console.log(Response.data.data)
             setDataPkgs(Response.data.data)
         })
+    }
+
+    React.useEffect(() => {
+        updatePkg()
     }, [])
 
     const onSubmit = async (result: SwitcherResult) => {
@@ -60,31 +67,56 @@ const MultiTable: React.FunctionComponent = () => {
         if (info.node.isLeaf !== true || SelectNode === keys[0]) return
         if (SelectNode !== undefined && SelectNode === keys[0]) return
         setSelectNode(keys[0])
+        const pkgName = info.node.pkgName
+        const tableName = info.node.key
         const from = {
-            pkgName: info.node.pkgName,
-            tableName: info.node.key
+            pkgName: pkgName,
+            tableName: tableName
         }
         setCurrTableInfo(from)
-        console.log(from)
         const res = await getTable(from)
         const table = res.data.data
         console.log(table)
+        const tableInfo = DataPkgs.filter((i: any) => i.pkgName ===  pkgName)[0].tables.filter((i: any) => i.tableName === tableName)[0]
         if (table === undefined) {
             alert('该表为空')
             return
         }
         const df = new DataFrame(table)
-        console.log(df.info())
         const fieldsTmp = initFields(df.info())
-        const switcherFields: any = initSwitcherFields(fieldsTmp)
-        console.log(switcherFields)
+        const switcherFields: any = initSwitcherFields(fieldsTmp, tableInfo.type === 1)
+        if (tableInfo.type === 1) {
+            setFields(fieldsTmp)
+        }
         setSwitcherFields(switcherFields)
         setS2Data(table)
     }
 
+    const handleSave = async (from: ISaveTable) => {
+        const res = await saveTable({
+            pkgName: from.pkgName,
+            tableName: SelectNode,
+            viewName: from.viewName,
+            columns: [...fields['columns'], ...fields['rows']],
+            values: fields['values']
+        })
+        if (res.data.code === 1) {
+            alert('保存失败')
+            return
+        }
+        updatePkg()
+    }
+
     const s2Options = {
         width: 1100,
-        height: 800
+        height: 800,
+        interaction: {
+            enableCopy: true,
+        }
+    }
+
+    const header = {
+        exportCfg: { open: true }
     }
 
     return (
@@ -104,12 +136,19 @@ const MultiTable: React.FunctionComponent = () => {
                                 image={Empty.PRESENTED_IMAGE_SIMPLE}
                             />
                         ) : (
-                            <SheetComponent
-                                sheetType={'pivot'}
-                                adaptive={false}
-                                dataCfg={{ data: S2Data, fields }}
-                                options={s2Options}
-                            />
+                            <>
+                                <SheetComponent
+                                    sheetType={'pivot'}
+                                    adaptive={false}
+                                    dataCfg={{ data: S2Data, fields }}
+                                    options={s2Options}
+                                    header={header}
+                                />
+                                <SaveTableFrom
+                                    DataPkgs={DataPkgs}
+                                    onOk={handleSave}
+                                ></SaveTableFrom>
+                            </>
                         )}
                     </div>
                 )}

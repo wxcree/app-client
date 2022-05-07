@@ -3,13 +3,14 @@ import withBreadcrumb from '@/hoc/withBreadcrumb'
 import { Layout } from 'antd'
 import { ColumnProps } from 'antd/es/table'
 import MyTree from '@/components/Collapse/Tree'
-import { getBasePkgs, getTable } from '@/services/table'
+import { getBasePkgs, getTable, saveTable } from '@/services/table'
 import { SheetComponent, Switcher } from '@antv/s2-react'
 import '@antv/s2-react/dist/style.min.css'
 import { DataFrame } from '@antv/data-wizard'
 import { S2DataConfig } from '@antv/s2'
 import { SwitcherResult } from '@antv/s2-react/esm/components/switcher/interface'
 import { initSwitcherFields } from '@/utils/table'
+import SaveTableFrom, { ISaveTable } from '@/components/SaveFrom'
 
 function generateSwitcherFields(updatedResult: any) {
     return {
@@ -23,23 +24,11 @@ function generateSwitcherFields(updatedResult: any) {
 // 生成 dataCfg fields 结构
 function generateFields(updatedResult: any) {
     return {
-        columns: updatedResult.columns.items.map((i: any) => i.id)
-    }
-}
-const defaultFields = {
-    columns: ['province', 'city', 'type', 'sub_type', 'number']
-}
-
-const defaultSwitcherFields = {
-    columns: {
-        selectable: true,
-        items: [
-            { id: 'province' },
-            { id: 'city' },
-            { id: 'type' },
-            { id: 'sub_type' },
-            { id: 'number' }
-        ]
+        columns: updatedResult.columns.items
+            .filter(
+                (i: any) => !updatedResult.columns.hideItems.find((hide: any) => hide.id === i.id)
+            )
+            .map((i: any) => i.id)
     }
 }
 
@@ -56,11 +45,16 @@ const TablePage: React.FunctionComponent = (props) => {
         },
         data: []
     })
-    React.useEffect(() => {
+
+    const updatePkg = () => {
         getBasePkgs({}).then((Response) => {
-            console.log(Response)
+            console.log(Response.data.data)
             setDataPkgs(Response.data.data)
         })
+    }
+
+    React.useEffect(() => {
+        updatePkg()
     }, [])
 
     const onSelect = async (keys: React.Key[], info: any) => {
@@ -100,13 +94,33 @@ const TablePage: React.FunctionComponent = (props) => {
         const data = Object.assign({}, s2DataConfig)
         data.fields = generateFields(result)
         setS2DataConfig(data)
+        console.log(data)
         setSwitcherFields(generateSwitcherFields(result))
         setHiddenColumnFields(result.columns.hideItems.map((i: any) => i.id))
+    }
+
+    const handleSave = async (from: ISaveTable) => {
+        const res = await saveTable({
+            pkgName: from.pkgName,
+            tableName: SelectNode,
+            viewName: from.viewName,
+            columns: s2DataConfig.fields.columns
+            // values: string[] | undefined
+        })
+        if (res.data.code === 1) {
+            alert('保存失败')
+            return
+        }
+        updatePkg()
     }
 
     const s2Options = {
         width: 1100,
         height: 800
+    }
+
+    const header = {
+        exportCfg: { open: true }
     }
 
     return (
@@ -115,12 +129,20 @@ const TablePage: React.FunctionComponent = (props) => {
                 <MyTree datapkgs={DataPkgs} onSelect={onSelect}></MyTree>
             </Layout.Sider>
             <Layout.Content>
-                <Switcher sheetType="table" {...switcherFields} onSubmit={onSubmit} />
-                <SheetComponent
-                    dataCfg={s2DataConfig}
-                    options={{ ...s2Options, interaction: { hiddenColumnFields } }}
-                    sheetType="table"
-                />
+                {s2DataConfig.data.length === 0 ? (
+                    <></>
+                ) : (
+                    <>
+                        <Switcher sheetType="table" {...switcherFields} onSubmit={onSubmit} />
+                        <SheetComponent
+                            dataCfg={s2DataConfig}
+                            options={{ ...s2Options, interaction: { hiddenColumnFields } }}
+                            sheetType="table"
+                            header={header}
+                        />
+                        <SaveTableFrom DataPkgs={DataPkgs} onOk={handleSave}></SaveTableFrom>
+                    </>
+                )}
             </Layout.Content>
         </Layout>
     )

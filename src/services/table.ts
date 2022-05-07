@@ -35,3 +35,7 @@ export const addTableName = function(payload: object): Promise<AxiosResponse<Res
 export const addTable = function(payload: object): Promise<AxiosResponse<ResponseResult<any>>> {
     return axios.post('/api/addtable', payload)
 }
+
+export const saveTable = function(payload: object): Promise<AxiosResponse<ResponseResult<any>>> {
+    return axios.post('/api/savetable', payload)
+}

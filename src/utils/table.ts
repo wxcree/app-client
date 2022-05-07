@@ -88,24 +88,24 @@ export function initFields(infos: FieldsInfo) {
     }
 }
 
-export function initSwitcherFields(fields: Fields) {
+export function initSwitcherFields(fields: Fields, checked = false) {
     return {
         rows: {
             selectable: true,
             items: fields.rows?.map((i: string) => {
-                return { id: i , checked: false}
+                return { id: i , checked: checked}
             })
         },
         columns: {
             selectable: true,
             items: fields.columns?.map((i: string) => {
-                return { id: i , checked: false}
+                return { id: i , checked: checked}
             })
         },
         values: {
             selectable: true,
             items: fields.values?.map((i: string) => {
-                return { id: i , checked: false}
+                return { id: i , checked: checked}
             })
         }
     }

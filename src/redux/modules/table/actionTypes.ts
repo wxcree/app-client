@@ -26,7 +26,12 @@ export interface SetTableDataAction extends Action {
 
 export interface IPkgData {
     pkgName: string
-    tables: string[]
+    tables: ITable[]
+}
+
+export interface ITable {
+    tableName: string
+    type: number
 }
 
 // 所有 table action 类型
