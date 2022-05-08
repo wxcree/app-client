@@ -4,7 +4,7 @@ const Webpack = require('webpack')
 const chalk = require('chalk')
 
 const webpackConfig = require('../webpack.config')
-const mockServer = require('../mock')
+// const mockServer = require('../mock')
 
 const PORT = process.env.HOST_PORT || 10086
 
