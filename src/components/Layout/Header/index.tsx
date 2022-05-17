@@ -25,6 +25,14 @@ const menuIconStyle: React.CSSProperties = {
 const AdminHeader = (props: IProps) => {
     const { onMenuClick, currentMenuStatus, appHistory, breadcrumbList, userInfo } = props
 
+    const handleLoginOut = () => {
+        window.localStorage.setItem('USER_INFO', '')
+
+        setTimeout(() => {
+            props.appHistory.push('/login')
+        }, 100)
+    }
+
     const handleClick = (url?: string) => {
         if (!url) return
         if (appHistory.location.pathname !== url) {
@@ -52,14 +60,16 @@ const AdminHeader = (props: IProps) => {
     const menuDropdown = (
         <Menu>
             <Menu.Item>
-                <Icon type="import" />
-                &nbsp;&nbsp;&nbsp;登&nbsp;&nbsp;出
+                <a onClick={handleLoginOut}>
+                    <Icon type="import" />
+                    &nbsp;&nbsp;&nbsp;登&nbsp;&nbsp;出
+                </a>
             </Menu.Item>
             <Menu.Item>
                 <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="https://github.com/hz199/react-admin-ts"
+                    href="https://github.com/wxcree/ScrewDataBoard"
                 >
                     <Icon type="github" />
                     &nbsp;&nbsp;&nbsp; github
