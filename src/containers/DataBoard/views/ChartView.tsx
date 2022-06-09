@@ -42,18 +42,16 @@ const LineChart = (props: IChartView) => {
             seriesField: config?.serise?.name,
             isGroup: 'true',
             xAxis: undefined,
-            yAxis: {
-                type: 'linear'
-            },
             columnStyle: {
                 radius: [20, 20, 0, 0],
             },
         }
-        if (config?.x?.type === 'Data') {
-            chartConfig['xAxis'] = {
-                type: 'time'
-            }
-        }
+        // if (config?.x?.type === 'Data') {
+        //     chartConfig['xAxis'] = {
+        //         type: 'time'
+        //     }
+        // }
+        console.log(chartConfig)
         return <Column {...chartConfig} />
     } else {
         const chartConfig = {
@@ -135,7 +133,7 @@ const PalChart = (props: IChartView) => {
 }
 
 const ChartView: React.FunctionComponent<IChartView> = (props) => {
-    // console.log(props)
+    console.log(props)
     if (
         props.config === undefined ||
         props.table === undefined ||

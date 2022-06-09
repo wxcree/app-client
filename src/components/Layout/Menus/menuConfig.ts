@@ -36,6 +36,11 @@ const menus: Array<MenusConfig> = [
                 path: '/app/analyze/MultiTable',
                 title: '多维分析'
             },
+            {
+                icon: 'container',
+                path: '/app/tables/table1',
+                title: '流水分析'
+            }
         ]
     },
     {
